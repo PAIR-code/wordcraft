@@ -1,0 +1,101 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+}
+
+.choices-controls-container {
+  flex-grow: 0;
+}
+
+.choices-controls-container .operation-message {
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.choices-container {
+  flex-grow: 1;
+  overflow: auto;
+  padding-bottom: 150px;
+  padding-right: 10px;
+  width: 100%;
+  margin-bottom: 140px;
+}
+
+.actions-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 0 0 30px;
+}
+
+.action-button-wrapper {
+  display: flex;
+  padding: 5px 0;
+}
+
+.action-button-wrapper:nth-child(2n) {
+  justify-content: flex-end;
+}
+
+.choice {
+  cursor: pointer;
+  margin-bottom: 15px;
+  position: relative;
+  line-height: 1.6;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 8px 12px;
+  border: 1px solid var(--light-gray);
+}
+
+.choice.selected {
+  background-color: var(--light-blue);
+  border: none;
+}
+
+.empty-choices {
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.orig-text-label {
+  font-size: 9pt;
+  color: var(--dark-gray);
+}
+
+.choices-instructions {
+  padding: 8px 0;
+  color: var(--dark-gray);
+}
+
+.choices-instructions:last-of-type {
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+}
+
+.choice-buttons {
+  transform: scale(0.7);
+  position: absolute;
+  right: -25px;
+  bottom: -25px;
+}
+
+.choice-buttons mwc-fab.choose {
+  --mdc-theme-secondary: var(--blue);
+  --mdc-theme-on-secondary: var(--white);
+}
+
+.choice-buttons mwc-fab.add-remove {
+  --mdc-theme-secondary: var(--dark-gray);
+  --mdc-theme-on-secondary: var(--white);
+}
+
+.choice-paragraph {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.choice-paragraph:last-of-type {
+  margin-bottom: 0;
+}

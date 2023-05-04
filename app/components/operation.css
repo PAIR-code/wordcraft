@@ -1,0 +1,48 @@
+.controls-step-title {
+  font-weight: 700;
+  color: var(--blue);
+  margin-bottom: 20px;
+  border-bottom: 2px solid var(--blue);
+  padding: 10px 0;
+}
+
+.controls-step-subtitle {
+  font-weight: normal;
+  color: black;
+  font-style: italic;
+  padding: 10px 0;
+}
+
+.operation-loading-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.operation-spinner-container {
+  margin-bottom: 20px;
+}
+
+.operation-loading-message {
+  text-align: center;
+  width: 100%;
+}
+
+.buttons-container {
+  margin: 5px 0;
+  display: flex;
+  padding-left: 100px;
+}
+
+wordcraft-key-command-small {
+  margin-right: 10px;
+}
+
+mwc-circular-progress-four-color {
+  --mdc-circular-progress-bar-color-1: #2196f3;
+  --mdc-circular-progress-bar-color-2: #e91e63;
+  --mdc-circular-progress-bar-color-3: #ffc107;
+  --mdc-circular-progress-bar-color-4: #03dac5;
+}

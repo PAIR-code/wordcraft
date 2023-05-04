@@ -1,0 +1,17 @@
+.loading-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}
+
+.loading-message {
+  color: var(--white);
+  padding: 3px 12px;
+  border-radius: 6px;
+  background: var(--gradient);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}

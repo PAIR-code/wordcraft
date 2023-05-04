@@ -1,0 +1,68 @@
+.dialog-wrapper {
+  padding: 0 10px;
+}
+
+.button,
+.selection {
+  display: inline-block;
+}
+
+.title {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  font-size: 19px;
+  margin-bottom: 25px;
+}
+
+.controls {
+  position: absolute;
+  right: 20px;
+  top: 15px;
+  transform: scale(0.75);
+  cursor: pointer;
+}
+
+button.inline {
+  margin: 0 5px;
+  font-family: var(--default-font-family);
+  margin-left: -10px;
+  margin-right: -10px;
+  transform: scale(0.8);
+}
+
+button.no-interaction {
+  cursor: default;
+}
+
+button.no-interaction:hover {
+  background-color: inherit;
+  color: var(--blue);
+}
+
+mwc-icon.sparkle {
+  position: relative;
+  top: 5px;
+  color: var(--blue);
+}
+
+.selection {
+  background: var(--light-blue);
+  background-position: -50%;
+}
+
+p {
+  font-size: 14px;
+  line-height: 2;
+  margin-bottom: 23px;
+}
+
+p:last-of-type {
+  text-align: right;
+}
+
+.get-started {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}

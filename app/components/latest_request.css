@@ -1,0 +1,14 @@
+.latest-request-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.latest-request-header h1 {
+  margin: 0;
+}
+
+.latest-request-header {
+  margin-bottom: 30px;
+}

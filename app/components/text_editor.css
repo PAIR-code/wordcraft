@@ -1,0 +1,139 @@
+.__mobiledoc-editor.__has-no-content:before {
+  content: attr(data-placeholder);
+  position: absolute;
+  color: var(--medium-gray);
+  padding-left: 1px;
+  cursor: text;
+}
+
+#editor-wrapper {
+  display: flex;
+  min-height: 100%;
+}
+
+#editor-wrapper.disabled {
+  user-select: none;
+}
+
+#editor-disabled-overlay {
+  z-index: 7;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: gray;
+  opacity: 0.05;
+  cursor: not-allowed;
+}
+
+#text-editor-wrapper {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  flex: 4;
+}
+
+#text-editor {
+  padding: 35px 50px;
+  text-align: left;
+  caret-color: #000;
+  outline: none;
+  border: none;
+  resize: none;
+}
+
+#text-editor > p,
+.visualization p {
+  margin: 0 0 10px;
+}
+
+/** The style we'll use for retaining "selected" status */
+#text-editor * em {
+  font-style: normal;
+  background-color: var(--text-selection);
+  line-height: 2rem;
+  clear: left;
+  padding: 0.35rem 0;
+}
+
+/** The style we'll use for highlighting the current sentence */
+#text-editor * b {
+  font-style: normal;
+  font-weight: 300;
+  color: var(--dark_blue);
+}
+
+#text-editor::selection {
+  background-color: var(--text-selection);
+}
+
+#editor-buffer {
+  height: 300px;
+  width: 100%;
+}
+
+.loading-atom {
+  color: white;
+  padding: 3px 12px;
+  border-radius: 6px;
+  background: var(--gradient);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
+.choice-atom {
+  padding: 3px 0 3px 3px;
+  border-radius: 6px;
+  background-color: #d5ecff;
+}
+
+.choice-atom:after {
+  content: 'press ⏎ to accept';
+  display: inline;
+  background: white;
+  font-family: monospace;
+  font-size: 11px;
+  padding: 10px 13px 10px 13px;
+  color: var(--dark-gray);
+}
+
+.selection-atom {
+  color: var(--white);
+  padding: 3px;
+  border-radius: 6px;
+  background: var(--gradient);
+  background-size: 400% 400%;
+  animation: gradient 5s ease infinite;
+}
+
+#word-counter {
+  position: fixed;
+  font-weight: 400;
+  bottom: 20px;
+  right: calc(var(--sidebar-right-width) + 30px);
+  padding: 0 10px;
+  font-family: var(--default-font-family);
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  color: var(--dark-gray);
+}
+
+.text-editor-font-styles {
+  line-height: 2rem;
+  font-size: 16px;
+  font-family: var(--editor-font-family);
+  font-weight: 300;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

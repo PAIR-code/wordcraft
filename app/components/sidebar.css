@@ -1,0 +1,81 @@
+.sidebar-contents {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 35px;
+}
+
+.no-padding {
+  padding: 0;
+}
+
+.sidebar-bottom-links {
+  margin-top: 20px;
+}
+
+.sidebar-bottom-links .link-button:not(:last-of-type) {
+  margin-right: 5px;
+}
+
+.sidebar-contents .controls {
+  text-transform: lowercase;
+  user-select: none;
+}
+
+.sidebar-contents .button,
+.sidebar-contents .arrow,
+.sidebar-contents .controls-label,
+.sidebar-contents .controls-value {
+  display: inline-block;
+}
+
+.sidebar-contents .controls-value {
+  width: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sidebar-contents .button {
+  background: var(--dark-gray);
+  padding: 5px 9px;
+  border-radius: 4px;
+  color: var(--white);
+  font-size: 12px;
+  margin-left: 5px;
+  letter-spacing: 0.5px;
+}
+
+.sidebar-contents .arrow {
+  width: 20px;
+  text-align: center;
+  height: 20px;
+  line-height: 20px;
+}
+
+.sidebar-contents .button,
+.sidebar-contents .arrow {
+  cursor: pointer;
+}
+
+.sidebar-contents .index-input {
+  width: 40px;
+  margin-right: 5px;
+  margin-left: 5px;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.selected-text-prompt {
+  font-style: italic;
+  max-width: 270px;
+}
+
+.sidebar-bottom {
+  position: fixed;
+  bottom: 25px;
+  left: 100vw - var(--sidebar-right-width) + 30px;
+  background: rgba(255, 255, 255, 0.8);
+}

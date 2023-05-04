@@ -1,0 +1,183 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 50px);
+}
+
+.messages-container {
+  flex: 1;
+  overflow: auto;
+  padding: 35px;
+}
+
+.input-container {
+  flex: 0;
+  border-top: 1px solid var(--medium-gray);
+  padding: 20px 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.input-container.disabled {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.left-side-msg,
+.right-side-msg {
+  overflow: hidden;
+  flex-direction: row;
+  width: 100%;
+  display: flex;
+}
+
+.left-side-msg {
+  justify-content: flex-start;
+}
+
+.right-side-msg {
+  justify-content: flex-end;
+}
+
+.usr-msg {
+  --text-bubble-text_-_background-color: var(--blue);
+  --text-bubble-text_-_border-radius: 24px 24px 0 24px;
+  --text-bubble-text_-_color: #fff;
+  --text-bubble-text_-_white-space: pre-wrap;
+  --text-bubble-text_-_border-style: initial;
+  --text-bubble-text_-_border-width: initial;
+  --text-bubble-text_-_border-color: initial;
+  --text-bubble-text_-_font-weight: initial;
+  --text-bubble-text_-_font-style: initial;
+}
+
+.agent-msg {
+  --text-bubble-text_-_background-color: #f3f3f3;
+  --text-bubble-text_-_border-radius: 24px 24px 24px 0;
+  --text-bubble-text_-_border-style: solid;
+  --text-bubble-text_-_border-width: thin;
+  --text-bubble-text_-_border-color: lightgray;
+  --text-bubble-text_-_color: #616161;
+  --text-bubble-text_-_white-space: pre-wrap;
+}
+
+.bubble-text {
+  display: flex;
+  color: black;
+  margin-bottom: 8px;
+  padding: 12px 16px;
+  outline: none;
+  background-color: var(--text-bubble-text_-_background-color);
+  border-radius: var(--text-bubble-text_-_border-radius);
+  color: var(--text-bubble-text_-_color, black);
+  white-space: var(--text-bubble-text_-_white-space);
+  font-family: var(--text-bubble-text_-_font-family);
+  border-style: var(--text-bubble-text_-_border-style);
+  border-width: var(--text-bubble-text_-_border-width);
+  border-color: var(--text-bubble-text_-_border-color);
+  font-weight: var(--text-bubble-text_-_font-weight);
+  font-style: var(--text-bubble-text_-_font-style);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.row.centered {
+  align-items: center;
+}
+
+textarea {
+  padding: 6px;
+  font-family: inherit;
+  font-size: inherit;
+  box-sizing: border-box;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 2px;
+  padding: 0.4em;
+  width: 100%;
+  height: 100px;
+  resize: none;
+}
+
+mwc-checkbox {
+  --mdc-checkbox-unchecked-color: var(--blue);
+  --mdc-theme-secondary: var(--blue);
+  margin-left: -12px;
+}
+
+.buttons-container button {
+  flex: 0 1 0%;
+  margin-left: 10px;
+  display: flex;
+  padding: 2px 5px;
+  margin-bottom: 10px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.loading-wrapper {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  margin: 5px 30px;
+}
+
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--blue);
+  color: var(--blue);
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: 0.5s;
+}
+
+.dot-flashing::before,
+.dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--blue);
+  color: var(--blue);
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: var(--blue);
+  color: var(--blue);
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+  0% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.3;
+  }
+}

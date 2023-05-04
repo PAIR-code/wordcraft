@@ -1,0 +1,34 @@
+.operation-button-row,
+.operation-control-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.operation-control-row {
+  padding: 3px 0;
+}
+
+.operation-row {
+  padding: 6px 0 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.operation-hint {
+  font-style: italic;
+  margin-top: 40px;
+  line-height: 1.8;
+}
+
+.wordcraft-global-controls {
+  margin-top: 12px;
+  padding: 10px 0;
+}
+
+.global-controls-line {
+  margin-bottom: 12px;
+  border-top: 1px solid var(--gray);
+  flex: 1;
+  height: 1px;
+}

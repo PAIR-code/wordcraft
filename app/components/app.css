@@ -1,0 +1,58 @@
+#wordcraft-app {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100vw;
+}
+
+#sidebar-left {
+  width: var(--sidebar-left-width);
+  border-right: 1px solid #ddd;
+  overflow: hidden;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+
+  font-size: 13px;
+  color: var(--dark-gray);
+}
+
+#main-panel {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.main-panel-overlay {
+  padding: 35px 50px;
+  position: absolute;
+  height: 100%;
+  z-index: 12;
+  background: white;
+}
+
+#sidebar-right {
+  overflow: hidden;
+  width: var(--sidebar-right-width);
+  border-left: 1px solid #ddd;
+  text-align: left;
+}
+
+.editor-overlay {
+  position: absolute;
+  background: white;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+mwc-snackbar {
+  z-index: 99;
+}
+
+.inline-icon {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-bottom: -2px;
+}

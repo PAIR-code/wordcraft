@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "es6",
+    "target": "es6",
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "removeComments": true,
+    "moduleResolution": "node"
+  },
+  "include": ["./app", "./third_party", "./app/globals.d.ts"],
+  "exclude": ["./node_modules", "app/lib"]
+}

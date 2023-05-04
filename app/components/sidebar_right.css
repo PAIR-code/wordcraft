@@ -1,0 +1,19 @@
+:host {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+mwc-tab-bar {
+  --mdc-theme-primary: var(--blue);
+  --mdc-typography-button-text-transform: none;
+  flex: 0;
+}
+
+mwc-tab-bar.disabled {
+  pointer-events: none;
+}
+
+.sidebar-contents {
+  flex: 1;
+}

@@ -1,0 +1,14 @@
+.env
+
+*.yaml
+deploy.sh
+
+**/npm-debug.log*
+**/yarn-debug.log*
+**/yarn-error.log*
+website/www/**
+**/build/**
+**/node_modules/**
+
+**/.DS_Store
+dist/
