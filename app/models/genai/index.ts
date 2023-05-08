@@ -32,7 +32,7 @@ import {makePromptHandler as rewriteSentence} from './prompts/rewrite_sentence';
 import {makePromptHandler as suggestRewrite} from './prompts/suggest_rewrite';
 import {ModelResults} from '../../core/shared/types';
 import {Model} from '../model';
-import {makeFetch} from './shared';
+import {makeFetch, ModelParams} from './api';
 import {
   createModelResults,
   dedupeResults,
@@ -51,52 +51,6 @@ interface ServiceProvider {
   contextService: ContextService;
   statusService: StatusService;
 }
-
-export const BLOCK_CONFIDENCE_THRESHOLDS = [
-  'BLOCK_CONFIDENCE_THRESHOLD_UNSPECIFIED',
-  'BLOCK_LOW_MEDIUM_AND_HIGH_HARM_CONFIDENCE',
-  'BLOCK_MEDIUM_AND_HIGH_HARM_CONFIDENCE',
-  'BLOCK_HIGH_HARM_CONFIDENCE_ONLY',
-  'BLOCK_NONE',
-];
-export type BlockConfidenceThreshold =
-  (typeof BLOCK_CONFIDENCE_THRESHOLDS)[number];
-
-export const SAFETY_CATEGORIES = [
-  'HATE',
-  'TOXICITY',
-  'VIOLENCE',
-  'SEXUAL',
-  'MEDICAL',
-  'DANGEROUS',
-];
-export type SafetyCategory = (typeof SAFETY_CATEGORIES)[number];
-
-export interface SafetySetting {
-  category: SafetyCategory;
-  threshold: BlockConfidenceThreshold;
-}
-
-export interface ModelParams {
-  topK?: number;
-  topP?: number;
-  candidateCount?: number;
-  maxOutputTokens?: number;
-  temperature?: number;
-  safetySettings: SafetySetting[];
-}
-
-export const DEFAULT_PARAMS: ModelParams = {
-  temperature: 1,
-  topK: 40,
-  topP: 0.95,
-  candidateCount: 8,
-  maxOutputTokens: 1024,
-  safetySettings: SAFETY_CATEGORIES.map((category, index) => ({
-    category,
-    threshold: 'BLOCK_NONE',
-  })),
-};
 
 /**
  * A Model representing GenAI API.
@@ -178,7 +132,6 @@ export class GenAIModel extends Model {
     temperature = temperature === undefined ? 1 : temperature;
 
     const modelParams = {
-      ...DEFAULT_PARAMS,
       ...params,
       prompt: {
         text: promptText,
