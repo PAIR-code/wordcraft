@@ -6,11 +6,11 @@ Wordcraft is an LLM-powered text editor with an emphasis on short story writing.
 
 Wordcraft is a tool built by researchers at Google
 [PAIR](https://pair.withgoogle.com/) for writing stories with AI. The
-application is powered by LLMs such as PaLM
-(https://developers.generativeai.google/), one of the latest generation of large
-language models. At its core, LLMs are simple machines — it's trained to predict
-the most likely next word given a textual prompt. But because the model is so
-large and has been trained on a massive amount of text, it's able to learn
+application is powered by LLMs such as
+[PaLM](https://developers.generativeai.google/), one of the latest generation of
+large language models. At its core, LLMs are simple machines — it's trained to
+predict the most likely next word given a textual prompt. But because the model
+is so large and has been trained on a massive amount of text, it's able to learn
 higher-level concepts. It also demonstrates a fascinating emergent capability
 often referred to as
 [_in-context learning_](https://huggingface.co/blog/few-shot-learning-gpt-neo-and-inference-api).

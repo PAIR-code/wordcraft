@@ -32,7 +32,7 @@ import {makePromptHandler as rewriteSentence} from './prompts/rewrite_sentence';
 import {makePromptHandler as suggestRewrite} from './prompts/suggest_rewrite';
 import {ModelResults} from '../../core/shared/types';
 import {Model} from '../model';
-import {makeFetch, ModelParams} from './api';
+import {callTextModel, ModelParams} from './api';
 import {
   createModelResults,
   dedupeResults,
@@ -59,9 +59,6 @@ export class GenAIModel extends Model {
   constructor(serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }
-
-  private modelId = 'text-bison-001';
-  private method = 'generateText';
 
   override getBlank() {
     return BLANK;
@@ -141,7 +138,7 @@ export class GenAIModel extends Model {
 
     console.log('🚀 prompt text: ', promptText);
 
-    const res = await makeFetch(this.modelId, this.method, modelParams);
+    const res = await callTextModel(modelParams);
     const response = await res.json();
     console.log('🚀 model results: ', response);
 

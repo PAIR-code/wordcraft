@@ -38,7 +38,7 @@ export const SAFETY_CATEGORIES = [
 export type SafetyCategory = (typeof SAFETY_CATEGORIES)[number];
 
 export interface SafetySetting {
-  category: SafetyCategory;
+  category: number;
   threshold: BlockConfidenceThreshold;
 }
 
@@ -48,42 +48,66 @@ export interface ModelParams {
   candidateCount?: number;
   maxOutputTokens?: number;
   temperature?: number;
-  safetySettings: SafetySetting[];
+  safetySettings?: SafetySetting[];
 }
 
-export const DEFAULT_PARAMS: ModelParams = {
+const DEFAULT_PARAMS: ModelParams = {
   temperature: 1,
   topK: 40,
   topP: 0.95,
   candidateCount: 8,
+};
+
+const DEFAULT_TEXT_PARAMS: ModelParams = {
+  ...DEFAULT_PARAMS,
   maxOutputTokens: 1024,
   safetySettings: SAFETY_CATEGORIES.map((category, index) => ({
-    category,
+    category: index,
     threshold: 'BLOCK_NONE',
   })),
 };
 
-const API_URL =
-  'https://autopush-generativelanguage.sandbox.googleapis.com/v1beta2/models';
+const DEFAULT_DIALOG_PARAMS: ModelParams = {
+  ...DEFAULT_PARAMS,
+};
 
-export async function makeFetch(
+const API_URL = 'https://generativelanguage.googleapis.com/v1beta2';
+
+const TEXT_MODEL_ID = 'text-bison-001';
+const TEXT_METHOD = 'generateText';
+
+const DIALOG_MODEL_ID = 'chat-bison-001';
+const DIALOG_METHOD = 'generateMessage';
+
+export async function callTextModel(params: ModelParams) {
+  params = {
+    ...DEFAULT_TEXT_PARAMS,
+    ...params,
+  };
+  return callApi(TEXT_MODEL_ID, TEXT_METHOD, params);
+}
+
+export async function callDialogModel(params: ModelParams) {
+  params = {
+    ...DEFAULT_DIALOG_PARAMS,
+    ...params,
+  };
+  return callApi(DIALOG_MODEL_ID, DIALOG_METHOD, params);
+}
+
+export async function callApi(
   modelId: string,
   method: string,
   params: Partial<ModelParams>
 ) {
-  params = {
-    ...DEFAULT_PARAMS,
-    ...params,
-  };
-
-  const urlPrefix = `${API_URL}/${modelId}:${method}`;
+  const urlPrefix = `${API_URL}/models/${modelId}:${method}`;
   const url = new URL(urlPrefix);
   url.searchParams.append('key', process.env.GENAI_API_KEY);
 
   return fetch(url.toString(), {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/json',
+      'Content-Type': 'text/plain',
     },
     body: JSON.stringify(params),
   });

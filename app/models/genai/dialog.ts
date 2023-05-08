@@ -19,7 +19,7 @@
 
 import {DialogParams} from '../../core/shared/interfaces';
 import {DialogModel} from '../dialog_model';
-import {makeFetch} from './shared';
+import {callDialogModel, ModelParams} from './api';
 import {createModelResults} from '../utils';
 
 import {ContextService, StatusService} from '../../core/services/services';
@@ -28,21 +28,6 @@ interface ServiceProvider {
   contextService: ContextService;
   statusService: StatusService;
 }
-
-export interface ModelParams {
-  topK?: number;
-  topP?: number;
-  candidateCount?: number;
-  temperature?: number;
-}
-
-export const DEFAULT_PARAMS: ModelParams = {
-  temperature: 1,
-  topK: 40,
-  topP: 0.95,
-  candidateCount: 1,
-};
-
 /**
  * A Model representing GenAI Dialog API.
  */
@@ -50,9 +35,6 @@ export class GenAIDialogModel extends DialogModel {
   constructor(serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }
-
-  private modelId = 'chat-bison-001';
-  private method = 'generateMessage';
 
   override async query(
     params: DialogParams,
@@ -62,15 +44,15 @@ export class GenAIDialogModel extends DialogModel {
     temperature = temperature === undefined ? 0.7 : temperature;
 
     const queryParams = {
-      ...DEFAULT_PARAMS,
       ...modelParams,
+      candidateCount: 1,
       prompt: {
         messages: params.messages,
       },
       temperature: temperature,
     };
 
-    const res = await makeFetch(this.modelId, this.method, queryParams);
+    const res = await callDialogModel(queryParams);
     const response = await res.json();
     console.log('🚀 model results: ', response);
 
