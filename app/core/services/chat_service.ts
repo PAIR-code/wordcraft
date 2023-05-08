@@ -30,8 +30,8 @@ interface ServiceProvider {
 }
 
 /**
- * The ChatService class is responsible for managing a running chat with a LaMDA
- * agent, in order to help facilitate the writing process.
+ * The ChatService class is responsible for managing a running chat with a
+ * dialog agent, in order to help facilitate the writing process.
  */
 export class ChatService extends Service {
   constructor(private readonly serviceProvider: ServiceProvider) {

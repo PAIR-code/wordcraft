@@ -82,24 +82,6 @@ export interface EditorMetaText {
 
 export type Lifecycle = 'ONBOARDING' | 'INITIALIZING' | 'EDITING';
 
-export interface LamdaScore {
-  id: string;
-  value: number;
-}
-
-export interface LamdaMessage {
-  text: string;
-  lmPrefixTokens: string;
-  lmPrefix: string;
-  score: LamdaScore[];
-}
-
-export interface LamdaResponse {
-  messages: LamdaMessage[];
-  // tslint:disable-next-line:no-any
-  stats: any;
-}
-
 export interface ModelResult {
   text: string;
   uuid: string;

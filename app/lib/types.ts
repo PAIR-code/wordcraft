@@ -26,19 +26,9 @@ export type Constructor<T> = {
   new (...args: any[]): T;
 };
 
-/** The Model Type */
-export type ModelType = 'lamda';
-
-/** The Model Score Dict Entry */
-export interface ModelScore {
-  id: string;
-  value: number;
-}
-
 /** The Model Message Array Entry */
 export interface ModelMessage {
   text: string;
-  score: ModelScore[];
 }
 
 /** The Model Response JSON */
