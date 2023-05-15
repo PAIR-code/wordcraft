@@ -39,7 +39,7 @@ Once you have your API key, create a .env file and add the key!
 
 ```bash
 touch .env
-echo "API_KEY=\"<INSERT_GENAI_API_KEY>\"" > .env
+echo "GENAI_API_KEY=\"<INSERT_GENAI_API_KEY>\"" > .env
 ```
 
 Remember, use your API keys securely. Do not share them with others, or embed
