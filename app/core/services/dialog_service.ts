@@ -157,9 +157,8 @@ export class DialogService extends Service {
 
   getDoNotTrustTheBotMessage() {
     return html`
-      ⚠️ DO NOT BELIEVE THE BOT!<br />
-      Any information it provides is likely to be made up.<br />
-      It can say offensive and biased things, especially when provoked.
+      ⚠️ Disclaimer:<br />
+      DeepBrainz Copilot's Free Research Preview may generate or display inaccurate or offensive information about people, places, or facts that does not reflect DeepBrainz's views.
     `;
   }
 

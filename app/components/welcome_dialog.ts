@@ -39,8 +39,8 @@ export class WelcomeDialogComponent extends MobxLitElement {
 
   override render() {
     const welcomeMessage = this.hasBeenWelcomed
-      ? 'About Wordcraft'
-      : 'Welcome to Wordcraft!';
+      ? 'About DeepBrainz Copilot'
+      : 'Welcome to DeepBrainz Copilot!';
 
     // clang-format off
     return html`
@@ -49,9 +49,9 @@ export class WelcomeDialogComponent extends MobxLitElement {
           <mwc-icon @click=${() => void this.close()}>close</mwc-icon>
         </div>
         <div class="main">
-          <div class="title">✨✍️${welcomeMessage}</div>
+          <div class="title">♾️🌐${welcomeMessage}</div>
           <p>
-            Wordcraft is a text editor that enables collaborative writing with a
+            DeepBrainz Copilot is a text editor that enables collaborative writing with a
             powerful language model, with a suite of built-in controls: from
             generating new content to rewriting text, even suggesting what to
             try next.
@@ -76,7 +76,7 @@ export class WelcomeDialogComponent extends MobxLitElement {
             conversation with the AI about your story to develop new ideas and
             get feedback.
           </p>
-          <p>❤️ - Wordcraft</p>
+          <p>❤️ - DeepBrainz Copilot</p>
         </div>
         ${this.renderGetStarted()}
       </div>
@@ -90,7 +90,7 @@ export class WelcomeDialogComponent extends MobxLitElement {
     return html`
       <div class="get-started">
         <button type="button" @click=${() => void this.close()}>
-          ✨✍️ Get Started
+          ♾️🌐 Get Started
         </button>
       </div>
     `;

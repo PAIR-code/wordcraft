@@ -22,6 +22,7 @@
     "@material/mwc-tab": "^0.27.0",
     "@material/mwc-tab-bar": "^0.27.0",
     "@webcomponents/webcomponentsjs": "^2.7.0",
+    "firebase": "^9.22.2",
     "lit": "2.0.0",
     "mobiledoc-kit": "^0.15.0",
     "mobx": "5.15.4"

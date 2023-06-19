@@ -14,10 +14,11 @@ limitations under the License.
 <!DOCTYPE html>
 <html>
 
-  <head>
+<head>
   <meta charset="UTF-8">
-  <title>Wordcraft</title>
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined&display=block" rel="stylesheet">
+  <title>DeepBrainz Copilot</title>
+  <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined&display=block"
+    rel="stylesheet">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=block" rel="preload" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=block" rel="stylesheet">
@@ -25,10 +26,155 @@ limitations under the License.
 
   <!-- Add any global styles for body, document, etc. -->
   <link rel="stylesheet" href="global.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  
+  
+
+  <style>
+    /* Some basic styles for the UI */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1,
+    h2 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .error {
+      color: red;
+    }
+  </style>
 </head>
 
 <body>
   <%= htmlWebpackPlugin.tags.headTags %>
+    <h1>DeepBrainz Copilot</h1>
+
+    <div class="container">
+      <h2>Login</h2>
+      <div id="login-form">
+        <div>Email: <input type="email" id="email"></div>
+        <div>Password: <input type="password" id="password"></div>
+        <div id="error-message" class="error"></div>
+        <button onclick="signIn()">Sign In</button>
+        <div>Or sign in with:</div>
+        <button onclick="signInWithGoogle()">Google</button>
+      </div>
+
+      <hr>
+
+      <h2>Registration</h2>
+      <div id="register-form">
+        <div>Email: <input type="email" id="reg-email"></div>
+        <div>Password: <input type="password" id="reg-password"></div>
+        <div id="reg-error-message" class="error"></div>
+        <button onclick="signUp()">Sign Up</button>
+      </div>
+    </div>
+
+    <script>
+      // Initialize Firebase with your project's config
+
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyAnmD-7mlGTUZ9k83Qi_m6wK4da54H-WW0",
+      authDomain: "deepbrainz-universal-ai.firebaseapp.com",
+      databaseURL: "https://deepbrainz-universal-ai.firebaseio.com",
+      projectId: "deepbrainz-universal-ai",
+      storageBucket: "deepbrainz-universal-ai.appspot.com",
+      messagingSenderId: "650240451950",
+      appId: "1:650240451950:web:8d4bfa9b07709a84514d7f"
+    };
+  
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  
+      // Get references to the input fields and error messages
+      var emailField = document.getElementById('email');
+      var passwordField = document.getElementById('password');
+      var errorField = document.getElementById('error-message');
+
+      var regEmailField = document.getElementById('reg-email');
+      var regPasswordField = document.getElementById('reg-password');
+      var regErrorField = document.getElementById('reg-error-message');
+
+      
+    // Create a new instance of the AuthUI class
+const authUi = new firebaseui.auth.AuthUI(firebase.auth());
+
+// Configure the Firebase Auth UI with your desired authentication providers and options
+const uiConfig = {
+  signInOptions: [
+    firebase.auth.GoogleAuthProvider.PROVIDER_ID
+  ],
+  signInSuccessUrl: "/dashboard",
+  callbacks: {
+    signInSuccessWithAuthResult: (authResult, redirectUrl) => {
+      // Handle successful sign-in
+      // You can redirect to a different page or perform additional operations
+      return true; // Return false to prevent automatic redirect
+    }
+  }
+};
+
+// Start the Firebase Auth UI with the configured options
+authUi.start("#firebaseui-auth-container", uiConfig);
+
+
+      // Sign in with email and password
+      function signIn() {
+        var email = emailField.value;
+        var password = passwordField.value;
+
+        firebase.auth().signInWithEmailAndPassword(email, password)
+          .then(function (userCredential) {
+            // User signed in successfully
+            var user = userCredential.user;
+            console.log('Signed in:', user);
+          })
+          .catch(function (error) {
+            // Handle sign in errors
+            var errorMessage = error.message;
+            errorField.textContent = errorMessage;
+          });
+      }
+
+      // Sign in with Google
+      function signInWithGoogle() {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider)
+          .then(function (result) {
+            // User signed in successfully with Google
+            var user = result.user;
+            console.log('Signed in with Google:', user);
+          })
+          .catch(function (error) {
+            // Handle sign in errors
+            var errorMessage = error.message;
+            errorField.textContent = errorMessage;
+          });
+      }
+
+    </script>
+
+      <!-- Add the Firebase SDK scripts -->
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.6.1/firebaseui.js"></script>
+
 </body>
 
 </html>

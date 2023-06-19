@@ -56,3 +56,20 @@ mwc-snackbar {
   vertical-align: bottom;
   margin-bottom: -2px;
 }
+
+/* Styles for mobile devices */
+@media only screen and (max-width: 600px) {
+  /* Mobile-specific styles go here */
+  }
+
+  /* Styles for tablets and larger screens */
+  @media only screen and (min-width: 601px) {
+    /* Tablet and larger screen styles go here */
+    }
+
+    .container {
+        width: 100%; /* The container will take up the full width of the parent element */
+          padding: 1rem; /* Padding relative to the font size of the parent element */
+            margin: 0 auto; /* Center the container horizontally */
+            }
+    

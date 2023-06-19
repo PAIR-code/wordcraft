@@ -50,7 +50,7 @@ export class OnboardingComponent extends MobxLitElement {
   override render() {
     return html`
       <div class="onboarding-wrapper">
-        <h1><span class="text">Wordcraft</span> ✨✍️</h1>
+        <h1><span class="text">DeepBrainz Copilot</span> ♾️ </h1>
         ${this.renderDescription()} ${this.renderGetStarted()}
         ${this.renderUserStories()}
       </div>
@@ -60,7 +60,7 @@ export class OnboardingComponent extends MobxLitElement {
   renderDescription() {
     return html`
       <div class="wordcraft-description">
-        Wordcraft is an AI-assisted text editor for writing stories.
+        DeepBrainz Copilot is an AI-assisted text editor for writing stories.
       </div>
     `;
   }

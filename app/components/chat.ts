@@ -74,8 +74,8 @@ export class ChatComponent extends MobxLitElement {
 
     const isSendButtonDisabled = isLoading || currentMessage.length === 0;
 
-    const placeholder = 'Say something to Wordcraft...';
-    const toggleLabel = 'Let Wordcraft read your story';
+    const placeholder = 'Say something to DeepBrainz Copilot...';
+    const toggleLabel = 'Let DeepBrainz Copilot read your story';
 
     // clang-format off
     return html`

@@ -1,10 +1,10 @@
-# ✨✍️ Wordcraft
+# ♾️ DeepBrainz Copilot 🌐
 
-Wordcraft is an LLM-powered text editor with an emphasis on short story writing.
+DeepBrainz Copilot is an LLM-powered text editor with an emphasis on short story writing.
 
 [g.co/research/wordcraft](http://g.co/research/wordcraft)
 
-Wordcraft is a tool built by researchers at Google
+DeepBrainz Copilot is a tool built by researchers at Google
 [PAIR](https://pair.withgoogle.com/) for writing stories with AI. The
 application is powered by LLMs such as
 [PaLM](https://developers.generativeai.google/), one of the latest generation of
@@ -18,7 +18,7 @@ By carefully designing input prompts, the model can be instructed to perform an
 incredibly wide range of tasks.
 
 However this process (often referred to as _prompt engineering_) is finicky and
-difficult even for experienced practitioners. We built Wordcraft with the goal
+difficult even for experienced practitioners. We built DeepBrainz Copilot with the goal
 of exploring how far we could push this technique through a carefully crafted
 user interface, and to empower writers by giving them access to these
 state-of-the-art tools.
@@ -32,7 +32,7 @@ npm run dev
 
 # ☁️ API
 
-In order to run Wordcraft, you'll need a GenAI API key. Please follow the
+In order to run DeepBrainz Copilot, you'll need a GenAI API key. Please follow the
 instructions at
 [developers.generativeai.google/tutorials/setup](https://developers.generativeai.google/tutorials/setup).
 Once you have your API key, create a .env file and add the key!
@@ -52,7 +52,7 @@ You can find more information about the PaLM 2 API at
 
 # 🤖 App
 
-Wordcraft can be customized by adding additional models or adding
+DeepBrainz Copilot can be customized by adding additional models or adding
 operations/controls. The basic architecture allows for a great deal of
 flexibility in the
 

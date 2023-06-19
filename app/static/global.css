@@ -96,3 +96,33 @@ body {
 
   font-family: var(--default-font-family);
 }
+/* Global styles for all screen sizes */
+body {
+  font-size: 16px;
+    line-height: 1.5;
+    }
+
+    /* Media queries for specific screen sizes */
+    @media (max-width: 768px) {
+      /* Styles for mobile devices */
+        body {
+            font-size: 14px;
+              }
+                
+                  /* Additional styles specific to mobile screens */
+                    .container {
+                        padding: 10px;
+                          }
+                          }
+
+                          @media (min-width: 1200px) {
+                            /* Styles for large screens */
+                              body {
+                                  font-size: 18px;
+                                    }
+
+                                      /* Additional styles specific to large screens */
+                                        .container {
+                                            padding: 20px;
+                                              }
+                                              }ji
