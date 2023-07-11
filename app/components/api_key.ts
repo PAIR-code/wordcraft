@@ -19,11 +19,12 @@
 import '@material/mwc-icon';
 
 import {MobxLitElement} from '@adobe/lit-mobx';
-import {html} from 'lit';
+import {css, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
+import {styleMap} from 'lit/directives/style-map.js';
 
 import {styles as sharedStyles} from './shared.css';
-import {styles} from './welcome_dialog.css';
+import {styles as inputStyles} from './controls/controls.css';
 
 /**
  * A welcome dialog.
@@ -31,28 +32,63 @@ import {styles} from './welcome_dialog.css';
 @customElement('wordcraft-api-key-dialog')
 export class ApiKeyComponent extends MobxLitElement {
   static override get styles() {
-    return [sharedStyles, styles];
+    return [
+      sharedStyles,
+      inputStyles,
+      css`
+        .main {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+
+        .title {
+          font-size: 22px;
+        }
+
+        .input-wrapper {
+          margin: 30px 0;
+          width: 100%;
+          display: flex;
+          gap: 16px;
+        }
+
+        button {
+          width: 250px;
+        }
+      `,
+    ];
   }
 
   @property({attribute: false}) apiKey = '';
 
+  private submitApiKey() {
+    const apiKey = this.apiKey;
+  }
+
   override render() {
+    const inputStyle = styleMap({
+      width: '100%',
+    });
+
     // clang-format off
     return html`
       <div class="dialog-wrapper">
         <div class="main">
-          <div class="title">✨✍️ Please enter your PaLM API Key</div>
+          <div class="title">Please enter your PaLM API Key</div>
           <div class="subtitle">In order to run Wordcraft, you'll need a PaLM API key. Please follow the
 instructions at
 <a href="https://developers.generativeai.google/tutorials/setup" target="_blank">developers.generativeai.google/tutorials/setup</a>. This API Key will be stored locally and won't be shared.
 
+          <div class="input-wrapper">
           <input
             type='text'
+            style=${inputStyle}
             @keydown=${(e: KeyboardEvent) => {
               if (e.key === 'Enter') {
                 e.preventDefault();
                 e.stopImmediatePropagation();
-                console.log('ENTER!');
+                this.submitApiKey();
                 return false;
               }
               return true;
@@ -63,19 +99,14 @@ instructions at
             }
             value=${this.apiKey}
             ></input>
+            <button type="button" ?disabled=${this.apiKey === ''}>
+              ✨✍️ Get Started
+            </button>
+          </div>
         </div>
-        ${this.renderGetStarted()}
       </div>
     `;
     // clang-format on
-  }
-
-  renderGetStarted() {
-    return html`
-      <div class="get-started">
-        <button type="button">✨✍️ Get Started</button>
-      </div>
-    `;
   }
 }
 
