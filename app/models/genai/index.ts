@@ -40,7 +40,11 @@ import {
   textContainsSpecialCharacters,
 } from '../utils';
 
-import {ContextService, StatusService} from '../../core/services/services';
+import {
+  ContextService,
+  KeyService,
+  StatusService,
+} from '../../core/services/services';
 import {startsWithPunctuation} from '../../lib/parse_sentences/utils';
 
 const D0 = '{';
@@ -49,6 +53,7 @@ const BLANK = '____';
 
 interface ServiceProvider {
   contextService: ContextService;
+  keyService: KeyService;
   statusService: StatusService;
 }
 
@@ -56,7 +61,7 @@ interface ServiceProvider {
  * A Model representing GenAI API.
  */
 export class GenAIModel extends Model {
-  constructor(serviceProvider: ServiceProvider) {
+  constructor(protected readonly serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }
 
@@ -137,8 +142,8 @@ export class GenAIModel extends Model {
     };
 
     console.log('🚀 prompt text: ', promptText);
-
-    const res = await callTextModel(modelParams);
+    const apiKey = this.serviceProvider.keyService.apiKey;
+    const res = await callTextModel(modelParams, apiKey);
     const response = await res.json();
     console.log('🚀 model results: ', response);
 

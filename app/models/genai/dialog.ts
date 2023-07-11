@@ -22,17 +22,22 @@ import {DialogModel} from '../dialog_model';
 import {callDialogModel, ModelParams} from './api';
 import {createModelResults} from '../utils';
 
-import {ContextService, StatusService} from '../../core/services/services';
+import {
+  ContextService,
+  KeyService,
+  StatusService,
+} from '../../core/services/services';
 
 interface ServiceProvider {
   contextService: ContextService;
+  keyService: KeyService;
   statusService: StatusService;
 }
 /**
  * A Model representing GenAI Dialog API.
  */
 export class GenAIDialogModel extends DialogModel {
-  constructor(serviceProvider: ServiceProvider) {
+  constructor(protected serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }
 
@@ -52,7 +57,8 @@ export class GenAIDialogModel extends DialogModel {
       temperature: temperature,
     };
 
-    const res = await callDialogModel(queryParams);
+    const apiKey = this.serviceProvider.keyService.apiKey;
+    const res = await callDialogModel(queryParams, apiKey);
     const response = await res.json();
     console.log('🚀 model results: ', response);
 

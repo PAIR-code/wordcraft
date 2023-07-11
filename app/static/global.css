@@ -68,6 +68,7 @@ button:not(:disabled):active {
 
 body {
   --blue: #3490dc;
+  --red: red;
   --dark_blue: #0668b8;
   --green: #02730a;
   --light-blue: #d5ecff;

@@ -26,6 +26,7 @@ import {DocumentStoreService} from './document_store_service';
 import {FeatureFlagsService} from './feature_flags_service';
 import {InitializationService} from './initialization_service';
 import {KeyboardService} from './keyboard_service';
+import {KeyService} from './key_service';
 import {LocalStorageService} from './local_storage_service';
 import {MetaTextService} from './meta_text_service';
 import {ModelService} from './model_service';
@@ -47,6 +48,7 @@ export {
   FeatureFlagsService,
   InitializationService,
   KeyboardService,
+  KeyService,
   LocalStorageService,
   MetaTextService,
   ModelService,

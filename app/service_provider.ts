@@ -28,6 +28,7 @@ import {DialogService} from './core/services/dialog_service';
 import {DocumentStoreService} from './core/services/document_store_service';
 import {FeatureFlagsService} from './core/services/feature_flags_service';
 import {InitializationService} from './core/services/initialization_service';
+import {KeyService} from './core/services/key_service';
 import {KeyboardService} from './core/services/keyboard_service';
 import {LocalStorageService} from './core/services/local_storage_service';
 import {MetaTextService} from './core/services/meta_text_service';
@@ -70,6 +71,9 @@ export function makeServiceProvider(self: WordcraftCore) {
     },
     get initializationService() {
       return self.getService(InitializationService);
+    },
+    get keyService() {
+      return self.getService(KeyService);
     },
     get keyboardService() {
       return self.getService(KeyboardService);

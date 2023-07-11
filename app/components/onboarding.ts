@@ -28,6 +28,7 @@ import {wordcraftCore} from '../core/wordcraft_core';
 import {AppService} from '../core/services/app_service';
 import {DialogService} from '../core/services/dialog_service';
 import {DocumentStoreService} from '../core/services/document_store_service';
+import {KeyService} from '../core/services/key_service';
 
 import {styles} from './onboarding.css';
 import {styles as sharedStyles} from './shared.css';
@@ -42,6 +43,7 @@ export class OnboardingComponent extends MobxLitElement {
   private readonly dialogService = wordcraftCore.getService(DialogService);
   private readonly documentStoreService =
     wordcraftCore.getService(DocumentStoreService);
+  private readonly keyService = wordcraftCore.getService(KeyService);
 
   static override get styles() {
     return [sharedStyles, styles];
@@ -56,10 +58,9 @@ export class OnboardingComponent extends MobxLitElement {
     this.documentStoreService.loadUserDocuments();
     this.registerDialog('api-key-dialog');
 
-    // if (process.env.PALM_API_KEY) {
-    if (false) {
+    if (this.keyService.isEnvApiKey) {
       console.log('✨ Using API Key from environment');
-    } else {
+    } else if (!this.keyService.isLocalStorageApiKey) {
       this.dialogService.openApiKeyDialog();
     }
   }
@@ -93,7 +94,11 @@ export class OnboardingComponent extends MobxLitElement {
 
   renderGetStarted() {
     const getStarted = () => {
-      this.appService.initializeEditor();
+      if (this.keyService.apiKey) {
+        this.appService.initializeEditor();
+      } else {
+        this.dialogService.openApiKeyDialog();
+      }
     };
 
     return html`

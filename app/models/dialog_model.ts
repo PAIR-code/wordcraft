@@ -31,7 +31,7 @@ interface ServiceProvider {
  */
 // tslint:disable:no-any
 export abstract class DialogModel {
-  constructor(private readonly serviceProvider: ServiceProvider) {}
+  constructor(protected readonly serviceProvider: ServiceProvider) {}
 
   get contextService() {
     return this.serviceProvider.contextService;

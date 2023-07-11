@@ -21,6 +21,7 @@ import {
   AppService,
   ContextService,
   DialogService,
+  KeyService,
   LocalStorageService,
   MetaTextService,
   ModelService,
@@ -41,6 +42,7 @@ interface ServiceProvider {
   dialogService: DialogService;
   contextService: ContextService;
   documentStoreService: DocumentStoreService;
+  keyService: KeyService;
   localStorageService: LocalStorageService;
   metaTextService: MetaTextService;
   modelService: ModelService;
@@ -72,6 +74,7 @@ export class InitializationService extends Service {
       contextService,
       dialogService,
       documentStoreService,
+      keyService,
       localStorageService,
       metaTextService,
       operationsService,
@@ -80,6 +83,7 @@ export class InitializationService extends Service {
       starredResultsService,
     } = this.serviceProvider;
 
+    keyService.initialize();
     contextService.initialize(context);
     dialogService.initialize();
 

@@ -17,11 +17,16 @@
  * ==============================================================================
  */
 import '@material/mwc-icon';
+import '@material/mwc-circular-progress';
 
 import {MobxLitElement} from '@adobe/lit-mobx';
 import {css, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {styleMap} from 'lit/directives/style-map.js';
+
+import {wordcraftCore} from '../core/wordcraft_core';
+import {KeyService} from '../core/services/key_service';
+import {delay} from '../lib/utils';
 
 import {styles as sharedStyles} from './shared.css';
 import {styles as inputStyles} from './controls/controls.css';
@@ -39,15 +44,19 @@ export class ApiKeyComponent extends MobxLitElement {
         .main {
           display: flex;
           flex-direction: column;
-          gap: 20px;
         }
 
         .title {
           font-size: 22px;
+          margin-bottom: 20px;
+        }
+
+        .subtitle {
+          margin-bottom: 20px;
         }
 
         .input-wrapper {
-          margin: 30px 0;
+          margin: 30px 0 0 0;
           width: 100%;
           display: flex;
           gap: 16px;
@@ -56,20 +65,46 @@ export class ApiKeyComponent extends MobxLitElement {
         button {
           width: 250px;
         }
+
+        .error-message {
+          margin-top: 10px;
+          color: var(--red);
+        }
       `,
     ];
   }
 
-  @property({attribute: false}) apiKey = '';
+  private readonly keyService = wordcraftCore.getService(KeyService);
 
-  private submitApiKey() {
+  @property({attribute: false}) apiKey = '';
+  @property({attribute: false}) isCheckingApiKey = false;
+  @property({attribute: false}) errorMessage = '';
+
+  private async submitApiKey() {
+    this.isCheckingApiKey = true;
     const apiKey = this.apiKey;
+    const isValid = await this.keyService.checkApiKey(apiKey);
+    if (!isValid) {
+      await delay(1000);
+      this.errorMessage = '⚠️ Invalid API Key';
+    }
+    this.isCheckingApiKey = false;
   }
 
   override render() {
     const inputStyle = styleMap({
       width: '100%',
     });
+
+    const isDisabled = this.isCheckingApiKey;
+
+    const renderButtonContent = () => {
+      if (this.isCheckingApiKey) {
+        return html`Checking...`;
+      } else {
+        return html`✨✍️ Get Started`;
+      }
+    };
 
     // clang-format off
     return html`
@@ -84,6 +119,7 @@ instructions at
           <input
             type='text'
             style=${inputStyle}
+            ?disabled=${isDisabled}
             @keydown=${(e: KeyboardEvent) => {
               if (e.key === 'Enter') {
                 e.preventDefault();
@@ -99,10 +135,13 @@ instructions at
             }
             value=${this.apiKey}
             ></input>
-            <button type="button" ?disabled=${this.apiKey === ''}>
-              ✨✍️ Get Started
+            <button type="button" ?disabled=${
+              this.apiKey === '' || isDisabled
+            } @click=${this.submitApiKey}>
+              ${renderButtonContent()}
             </button>
           </div>
+          <div class="error-message">${this.errorMessage}</div>
         </div>
       </div>
     `;

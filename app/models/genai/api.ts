@@ -79,30 +79,31 @@ const TEXT_METHOD = 'generateText';
 const DIALOG_MODEL_ID = 'chat-bison-001';
 const DIALOG_METHOD = 'generateMessage';
 
-export async function callTextModel(params: ModelParams) {
+export async function callTextModel(params: ModelParams, apiKey: string) {
   params = {
     ...DEFAULT_TEXT_PARAMS,
     ...params,
   };
-  return callApi(TEXT_MODEL_ID, TEXT_METHOD, params);
+  return callApi(TEXT_MODEL_ID, TEXT_METHOD, params, apiKey);
 }
 
-export async function callDialogModel(params: ModelParams) {
+export async function callDialogModel(params: ModelParams, apiKey: string) {
   params = {
     ...DEFAULT_DIALOG_PARAMS,
     ...params,
   };
-  return callApi(DIALOG_MODEL_ID, DIALOG_METHOD, params);
+  return callApi(DIALOG_MODEL_ID, DIALOG_METHOD, params, apiKey);
 }
 
 export async function callApi(
   modelId: string,
   method: string,
-  params: Partial<ModelParams>
+  params: Partial<ModelParams>,
+  apiKey: string
 ) {
   const urlPrefix = `${API_URL}/models/${modelId}:${method}`;
   const url = new URL(urlPrefix);
-  url.searchParams.append('key', process.env.PALM_API_KEY);
+  url.searchParams.append('key', apiKey);
 
   return fetch(url.toString(), {
     method: 'POST',
@@ -111,4 +112,15 @@ export async function callApi(
     },
     body: JSON.stringify(params),
   });
+}
+
+export async function testApi(apiKey: string) {
+  const params = {
+    ...DEFAULT_TEXT_PARAMS,
+    prompt: {
+      text: 'hell world!',
+    },
+  };
+  const results = await callApi(TEXT_MODEL_ID, TEXT_METHOD, params, apiKey);
+  return results;
 }
