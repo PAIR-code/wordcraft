@@ -17,13 +17,16 @@
  * ==============================================================================
  */
 import './shared_components/primitives/error_message';
+import './api_key';
 
 import {MobxLitElement} from '@adobe/lit-mobx';
+import {Dialog} from '@material/mwc-dialog';
 import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 
 import {wordcraftCore} from '../core/wordcraft_core';
 import {AppService} from '../core/services/app_service';
+import {DialogService} from '../core/services/dialog_service';
 import {DocumentStoreService} from '../core/services/document_store_service';
 
 import {styles} from './onboarding.css';
@@ -36,6 +39,7 @@ import {styles as sharedStyles} from './shared.css';
 @customElement('wordcraft-onboarding')
 export class OnboardingComponent extends MobxLitElement {
   private readonly appService = wordcraftCore.getService(AppService);
+  private readonly dialogService = wordcraftCore.getService(DialogService);
   private readonly documentStoreService =
     wordcraftCore.getService(DocumentStoreService);
 
@@ -43,8 +47,21 @@ export class OnboardingComponent extends MobxLitElement {
     return [sharedStyles, styles];
   }
 
+  private registerDialog(id: string) {
+    const dialog = this.shadowRoot!.getElementById(id) as Dialog;
+    if (dialog) this.dialogService.registerDialog(id, dialog);
+  }
+
   override firstUpdated() {
     this.documentStoreService.loadUserDocuments();
+    this.registerDialog('api-key-dialog');
+
+    // if (process.env.PALM_API_KEY) {
+    if (false) {
+      console.log('✨ Using API Key from environment');
+    } else {
+      this.dialogService.openApiKeyDialog();
+    }
   }
 
   override render() {
@@ -54,6 +71,15 @@ export class OnboardingComponent extends MobxLitElement {
         ${this.renderDescription()} ${this.renderGetStarted()}
         ${this.renderUserStories()}
       </div>
+      ${this.renderApiKeyDialog()}
+    `;
+  }
+
+  renderApiKeyDialog() {
+    return html`
+      <mwc-dialog id="api-key-dialog" hideActions>
+        <wordcraft-api-key-dialog></wordcraft-api-key-dialog>
+      </mwc-dialog>
     `;
   }
 

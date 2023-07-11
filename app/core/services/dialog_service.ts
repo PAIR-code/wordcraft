@@ -138,6 +138,13 @@ export class DialogService extends Service {
     }
   }
 
+  openApiKeyDialog() {
+    const dialog = this.dialogs.get('api-key-dialog');
+    if (dialog instanceof Dialog) {
+      this.openDialog(dialog);
+    }
+  }
+
   private openDialog(dialog: Dialog) {
     dialog.open = true;
     this.keyboardServiceHelper.registerKeyHandler('Escape', () => {

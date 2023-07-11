@@ -37,6 +37,7 @@ export interface LocalStorageState {
 const STATE_PREFIX = 'wordcraft-state';
 const EDITOR_SNAPSHOT_KEY = STATE_PREFIX + '@editor-snapshot';
 const HAS_BEEN_WELCOMED_KEY = STATE_PREFIX + '@has-been-welcomed';
+const PALM_API_KEY = STATE_PREFIX + '@palm-api-key';
 const LOG_KEY = STATE_PREFIX + '@log';
 const META_TEXT_KEY = STATE_PREFIX + '@meta-text';
 const STARRED_RESULTS_KEY = STATE_PREFIX + '@starred-results';
@@ -78,6 +79,14 @@ export class LocalStorageService extends Service {
 
   hasBeenWelcomed() {
     return this.getData<boolean>(HAS_BEEN_WELCOMED_KEY, false);
+  }
+
+  getApiKey() {
+    return this.getData<string>(PALM_API_KEY, '');
+  }
+
+  setApiKey(apiKey: string) {
+    this.setState(PALM_API_KEY, apiKey);
   }
 
   setLog(log: SerializedLog) {
