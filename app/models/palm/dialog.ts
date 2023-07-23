@@ -29,9 +29,9 @@ interface ServiceProvider {
   statusService: StatusService;
 }
 /**
- * A Model representing GenAI Dialog API.
+ * A Model representing PaLM Dialog API.
  */
-export class GenAIDialogModel extends DialogModel {
+export class PalmDialogModel extends DialogModel {
   constructor(serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }

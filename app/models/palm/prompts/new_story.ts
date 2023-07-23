@@ -20,12 +20,9 @@
 import {NewStoryPromptParams} from '../../../core/shared/interfaces';
 import {NewStoryExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
-import {GenAIModel} from '../../genai';
+import {PalmModel} from '..';
 
-export function makePromptHandler(
-  model: GenAIModel,
-  context: WordcraftContext
-) {
+export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function getPromptContext() {
     const examples = context.getExampleData<NewStoryExample>(
       OperationType.NEW_STORY

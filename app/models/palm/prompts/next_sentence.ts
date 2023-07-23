@@ -20,13 +20,10 @@
 import {NextSentencePromptParams} from '../../../core/shared/interfaces';
 import {NextSentenceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
-import {GenAIModel} from '../../genai';
+import {PalmModel} from '..';
 import {parseSentences} from '../../../lib/parse_sentences';
 
-export function makePromptHandler(
-  model: GenAIModel,
-  context: WordcraftContext
-) {
+export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(
     textBeforeBlank: string,
     textAfterBlank: string,

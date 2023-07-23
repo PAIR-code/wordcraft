@@ -32,14 +32,14 @@ npm run dev
 
 # ☁️ API
 
-In order to run Wordcraft, you'll need a GenAI API key. Please follow the
+In order to run Wordcraft, you'll need a PaLM API key. Please follow the
 instructions at
 [developers.generativeai.google/tutorials/setup](https://developers.generativeai.google/tutorials/setup).
 Once you have your API key, create a .env file and add the key!
 
 ```bash
 touch .env
-echo "GENAI_API_KEY=\"<INSERT_GENAI_API_KEY>\"" > .env
+echo "PALM_API_KEY=\"<INSERT_PALM_API_KEY>\"" > .env
 ```
 
 Remember, use your API keys securely. Do not share them with others, or embed
@@ -77,9 +77,9 @@ construct text that will be sent to a mode, and parses model output.
 To add a new custom control (e.g. a button that translates into pig latin):
 
 - Create a new `PigLatinExamples` in `/app/context/examples`
-- Create a corresponding prompt handler in `/app/models/genai/prompts`
+- Create a corresponding prompt handler in `/app/models/palm/prompts`
 - Register that prompt handler with the underlying `Model` class in
-  `/app/models/genai/index.ts`
+  `/app/models/palm/index.ts`
 - Create a new `PigLatinOperation` in `/app/core/operations`
 - Register the operation in `main.ts`
 

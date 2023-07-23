@@ -21,12 +21,9 @@ import {SuggestRewritePromptParams} from '../../../core/shared/interfaces';
 import {SuggestRewriteExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {TextType} from '../../../core/shared/types';
-import {GenAIModel} from '../../genai';
+import {PalmModel} from '..';
 
-export function makePromptHandler(
-  model: GenAIModel,
-  context: WordcraftContext
-) {
+export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(text: string, toRewrite: string) {
     const prefix = model.getStoryPrefix();
     const instruction = `Here's the sentence to rewrite: `;

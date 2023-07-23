@@ -29,12 +29,9 @@ import {
   WordcraftContext,
 } from '../../../context';
 import {OperationType} from '../../../core/shared/types';
-import {GenAIModel} from '../../genai';
+import {PalmModel} from '..';
 
-export function makePromptHandler(
-  model: GenAIModel,
-  context: WordcraftContext
-) {
+export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(
     textBeforeBlank: string,
     textAfterBlank: string,

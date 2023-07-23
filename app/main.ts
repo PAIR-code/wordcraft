@@ -28,8 +28,8 @@ import {OperationsService} from './core/services/operations_service';
 import {WordcraftContext} from './context';
 import {makeServiceProvider} from './service_provider';
 import {InitializationService} from './core/services/initialization_service';
-import {GenAIModel} from './models/genai';
-import {GenAIDialogModel} from './models/genai/dialog';
+import {PalmModel} from './models/palm';
+import {PalmDialogModel} from './models/palm/dialog';
 
 wordcraftCore.initialize(makeServiceProvider);
 
@@ -55,8 +55,8 @@ operationsService.registerOperations(
 
 // Register prompts with models
 const modelService = wordcraftCore.getService(ModelService);
-modelService.useModel(GenAIModel);
-modelService.useDialogModel(GenAIDialogModel);
+modelService.useModel(PalmModel);
+modelService.useDialogModel(PalmDialogModel);
 
 // Initialize the app after page load, so that all of the javascript is present
 // before we build the app.
