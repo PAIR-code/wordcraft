@@ -20,7 +20,7 @@ import {Dialog} from '@material/mwc-dialog';
 import {html, TemplateResult} from 'lit';
 import {decorate, observable} from 'mobx';
 
-import {SnackbarComponent} from '../../components/shared_components/primitives/snackbar';
+import {SnackbarComponent} from '@components/shared_components/primitives/snackbar';
 import {
   KeyboardService,
   KeyboardServiceHelper,

@@ -17,9 +17,9 @@
  * ==============================================================================
  */
 
-import {ElaboratePromptParams} from '../../../core/shared/interfaces';
+import {ElaboratePromptParams} from '@core/shared/interfaces';
 import {ElaborateExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {

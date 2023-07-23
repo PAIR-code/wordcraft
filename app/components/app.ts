@@ -29,14 +29,14 @@ import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 import {styleMap} from 'lit/directives/style-map.js';
 
-import {SnackbarComponent} from './shared_components/primitives/snackbar';
-import {wordcraftCore} from '../core/wordcraft_core';
-import {AppService} from '../core/services/app_service';
-import {DialogService} from '../core/services/dialog_service';
-import {KeyboardService} from '../core/services/keyboard_service';
-import {LocalStorageService} from '../core/services/local_storage_service';
-import {KeyCommand} from '../core/shared/keyboard';
-import {DocumentStoreService} from '../core/services/document_store_service';
+import {SnackbarComponent} from '@components/shared_components/primitives/snackbar';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {AppService} from '@services/app_service';
+import {DialogService} from '@services/dialog_service';
+import {KeyboardService} from '@services/keyboard_service';
+import {LocalStorageService} from '@services/local_storage_service';
+import {KeyCommand} from '@core/shared/keyboard';
+import {DocumentStoreService} from '@services/document_store_service';
 
 import {styles} from './app.css';
 import {styles as sharedStyles} from './shared.css';

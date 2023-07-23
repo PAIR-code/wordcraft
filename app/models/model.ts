@@ -31,10 +31,10 @@ import {
   RewriteSelectionPromptParams,
   RewriteSentencePromptParams,
   SuggestRewritePromptParams,
-} from '../core/shared/interfaces';
+} from '@core/shared/interfaces';
 import {WordcraftContext} from '../context';
-import {ContextService, StatusService} from '../core/services/services';
-import {ModelResults} from '../core/shared/types';
+import {ContextService, StatusService} from '@services/services';
+import {ModelResults} from '@core/shared/types';
 
 import {dedupeResults} from './utils';
 

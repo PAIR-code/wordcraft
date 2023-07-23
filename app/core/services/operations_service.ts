@@ -19,9 +19,9 @@
 import {TemplateResult} from 'lit';
 import {computed, decorate, observable} from 'mobx';
 
-import {CancelOperationError} from '../../lib/errors';
-import {Constructor} from '../../lib/types';
-import {uuid} from '../../lib/uuid';
+import {CancelOperationError} from '@lib/errors';
+import {Constructor} from '@lib/types';
+import {uuid} from '@lib/uuid';
 import {ChoiceOperation, RewriteChoiceOperation} from '../operations';
 import {ServiceProvider as OperationServiceProvider} from '../operations/operation';
 import {ChoiceStep} from '../operations/steps/choice_step';

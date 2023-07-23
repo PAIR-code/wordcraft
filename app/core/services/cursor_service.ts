@@ -23,7 +23,7 @@ import {
   findMobiledocSectionAtIndex,
   findMobiledocSectionIndex,
   SerializedRange,
-} from '../../lib/mobiledoc';
+} from '@lib/mobiledoc';
 import {SentencesService, TextEditorService} from './services';
 
 import {Service} from './service';

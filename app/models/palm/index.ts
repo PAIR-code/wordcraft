@@ -30,7 +30,7 @@ import {makePromptHandler as rewriteEndOfSentence} from './prompts/rewrite_end_o
 import {makePromptHandler as rewriteSelection} from './prompts/rewrite_selection';
 import {makePromptHandler as rewriteSentence} from './prompts/rewrite_sentence';
 import {makePromptHandler as suggestRewrite} from './prompts/suggest_rewrite';
-import {ModelResults} from '../../core/shared/types';
+import {ModelResults} from '@core/shared/types';
 import {Model} from '../model';
 import {callTextModel, ModelParams} from './api';
 import {
@@ -40,8 +40,8 @@ import {
   textContainsSpecialCharacters,
 } from '../utils';
 
-import {ContextService, StatusService} from '../../core/services/services';
-import {startsWithPunctuation} from '../../lib/parse_sentences/utils';
+import {ContextService, StatusService} from '@services/services';
+import {startsWithPunctuation} from '@lib/parse_sentences/utils';
 
 const D0 = '{';
 const D1 = '}';

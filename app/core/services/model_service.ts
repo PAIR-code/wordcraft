@@ -16,7 +16,7 @@
  * limitations under the License.
  * ==============================================================================
  */
-import {Constructor} from '../../lib/types';
+import {Constructor} from '@lib/types';
 import {Model, DialogModel} from '../../models';
 import {ConfigService} from './config_service';
 

@@ -48,7 +48,7 @@ import rewriteSelectionJson from './json/rewrite_selection.json';
 import rewriteSentenceJson from './json/rewrite_sentence.json';
 import suggestRewriteJson from './json/suggest_rewrite.json';
 
-import {OperationType} from '../core/shared/types';
+import {OperationType} from '@core/shared/types';
 
 export class WordcraftContext {
   constructor() {

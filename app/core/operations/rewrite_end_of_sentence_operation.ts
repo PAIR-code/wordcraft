@@ -18,7 +18,7 @@
  */
 import * as Mobiledoc from 'mobiledoc-kit';
 
-import {createModelResult} from '../../models/utils';
+import {createModelResult} from '@models/utils';
 import * as helpers from '../operation_data/helpers';
 import {ModelResult, OperationSite, OperationType} from '../shared/types';
 

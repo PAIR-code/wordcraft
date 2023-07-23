@@ -20,7 +20,7 @@ import {MobxLitElement} from '@adobe/lit-mobx';
 import {html, TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-import {StepSliderControl} from '../../core/operations/operation_controls';
+import {StepSliderControl} from '@operations/operation_controls';
 import {styles as sharedStyles} from '../shared.css';
 
 import {styles} from './controls.css';

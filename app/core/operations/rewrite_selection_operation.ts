@@ -18,7 +18,7 @@
  */
 import {computed, decorate} from 'mobx';
 
-import {createModelResult} from '../../models/utils';
+import {createModelResult} from '@models/utils';
 import * as helpers from '../operation_data/helpers';
 import {
   ModelResult,

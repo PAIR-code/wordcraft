@@ -21,7 +21,7 @@ import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 import {computed, decorate, observable} from 'mobx';
 
-import {getRandomLoadingMessage} from '../lib/loading_messages';
+import {getRandomLoadingMessage} from '@lib/loading_messages';
 
 import {styles} from './loading.css';
 import {styles as sharedStyles} from './shared.css';

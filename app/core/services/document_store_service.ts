@@ -18,7 +18,7 @@
  */
 import {decorate, observable} from 'mobx';
 
-import {StateSnapshot} from '../../lib/mobiledoc';
+import {StateSnapshot} from '@lib/mobiledoc';
 import {Service} from './service';
 import {
   AppService,
@@ -28,7 +28,7 @@ import {
   TextEditorService,
 } from './services';
 import {ModelResult} from '../shared/types';
-import {delay} from '../../lib/utils';
+import {delay} from '@lib/utils';
 
 interface ServiceProvider {
   appService: AppService;

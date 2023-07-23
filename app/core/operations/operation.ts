@@ -19,8 +19,8 @@
 import {TemplateResult} from 'lit';
 import {observable} from 'mobx';
 
-import {CancelOperationError, CancelStepError} from '../../lib/errors';
-import {StateSnapshot} from '../../lib/mobiledoc';
+import {CancelOperationError, CancelStepError} from '@lib/errors';
+import {StateSnapshot} from '@lib/mobiledoc';
 import {OperationDataProcessor} from '../operation_data/processor';
 import {OperationData} from '../shared/data';
 import {
@@ -31,7 +31,7 @@ import {
   SentencesService,
   TextEditorService,
 } from '../services/services';
-import {Model} from '../../models/model';
+import {Model} from '@models/model';
 import {OperationControls} from '../shared/interfaces';
 import {OperationsService} from '../services/operations_service';
 import {OperationSite, OperationTrigger, OperationType} from '../shared/types';

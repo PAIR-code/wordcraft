@@ -16,9 +16,9 @@
  * limitations under the License.
  * ==============================================================================
  */
-import {DialogParams} from '../core/shared/interfaces';
-import {ContextService, StatusService} from '../core/services/services';
-import {ModelResults} from '../core/shared/types';
+import {DialogParams} from '@core/shared/interfaces';
+import {ContextService, StatusService} from '@services/services';
+import {ModelResults} from '@core/shared/types';
 
 interface ServiceProvider {
   contextService: ContextService;

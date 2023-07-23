@@ -18,18 +18,18 @@
  */
 
 import {AppComponent} from './components/app';
-import {wordcraftCore} from './core/wordcraft_core';
+import {wordcraftCore} from '@core/wordcraft_core';
 
-import * as Operations from './core/operations';
+import * as Operations from '@core/operations';
 
-import {ModelService} from './core/services/model_service';
-import {OperationsService} from './core/services/operations_service';
+import {ModelService} from '@services/model_service';
+import {OperationsService} from '@services/operations_service';
 
 import {WordcraftContext} from './context';
 import {makeServiceProvider} from './service_provider';
-import {InitializationService} from './core/services/initialization_service';
-import {PalmModel} from './models/palm';
-import {PalmDialogModel} from './models/palm/dialog';
+import {InitializationService} from '@services/initialization_service';
+import {PalmModel} from '@models/palm';
+import {PalmDialogModel} from '@models/palm/dialog';
 
 wordcraftCore.initialize(makeServiceProvider);
 

@@ -24,13 +24,13 @@ import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
-import {Choices} from '../lib/choices';
-import {preventDefault} from '../lib/utils';
-import {KeyboardService} from '../core/services/keyboard_service';
-import {StarredResultsService} from '../core/services/starred_results_service';
-import {TextEditorService} from '../core/services/text_editor_service';
-import {ModelResult} from '../core/shared/types';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {Choices} from '@lib/choices';
+import {preventDefault} from '@lib/utils';
+import {KeyboardService} from '@services/keyboard_service';
+import {StarredResultsService} from '@services/starred_results_service';
+import {TextEditorService} from '@services/text_editor_service';
+import {ModelResult} from '@core/shared/types';
 
 import {styles as choicesStyles} from './choices.css';
 import {styles as sharedStyles} from './shared.css';

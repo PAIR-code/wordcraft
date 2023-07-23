@@ -14,40 +14,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DotEnvPlugin = require('dotenv-webpack');
+const shared = require('./shared');
 
 module.exports = {
   entry: './app/main.ts',
   mode: 'development',
   devtool: 'inline-source-map',
-  module: {
-    rules: [
-      {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      // Load the lit-element css files
-      {
-        test: /\.css$/i,
-        loader: resolveDir('./lit-css-loader.js'),
-      },
-    ],
-  },
-  resolve: {
-    extensions: ['.ts', '.ts', '.js', '.css'],
-  },
+  module: shared.module,
+  resolve: shared.resolve,
   plugins: [
     new DotEnvPlugin(),
     new HtmlWebpackPlugin({
       inject: false,
-      template: resolveDir('../app/static/index.html'),
+      template: shared.resolveDir('../app/static/index.html'),
     }),
   ],
   devServer: {
-    static: resolveDir('../app/static'),
+    static: shared.resolveDir('../app/static'),
     port: 3000,
     // https: true,
   },
@@ -55,10 +40,3 @@ module.exports = {
     runtimeChunk: 'single',
   },
 };
-
-/**
- * Convenience wrapper for path.resolve().
- */
-function resolveDir(relativeDir) {
-  return path.resolve(__dirname, relativeDir);
-}

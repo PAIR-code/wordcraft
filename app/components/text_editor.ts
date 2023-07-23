@@ -21,8 +21,8 @@ import {html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
-import {TextEditorService} from '../core/services/text_editor_service';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {TextEditorService} from '@services/text_editor_service';
 
 import {styles} from './text_editor.css';
 

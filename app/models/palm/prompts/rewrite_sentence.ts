@@ -17,10 +17,10 @@
  * ==============================================================================
  */
 
-import {shuffle} from '../../../lib/utils';
-import {RewriteSentencePromptParams} from '../../../core/shared/interfaces';
+import {shuffle} from '@lib/utils';
+import {RewriteSentencePromptParams} from '@core/shared/interfaces';
 import {RewriteSentenceExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {

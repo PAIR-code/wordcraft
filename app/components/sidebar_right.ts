@@ -18,7 +18,7 @@
  */
 import '@material/mwc-tab';
 import '@material/mwc-tab-bar';
-import './shared_components/primitives/error_message';
+import '@components/shared_components/primitives/error_message';
 import './chat';
 import './operations';
 import './operation_controls';
@@ -29,13 +29,13 @@ import {html, TemplateResult} from 'lit';
 import {customElement} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
-import {AppService} from '../core/services/app_service';
-import {DocumentStoreService} from '../core/services/document_store_service';
-import {InitializationService} from '../core/services/initialization_service';
-import {ModelService} from '../core/services/model_service';
-import {OperationsService} from '../core/services/operations_service';
-import {StarredResultsService} from '../core/services/starred_results_service';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {AppService} from '@services/app_service';
+import {DocumentStoreService} from '@services/document_store_service';
+import {InitializationService} from '@services/initialization_service';
+import {ModelService} from '@services/model_service';
+import {OperationsService} from '@services/operations_service';
+import {StarredResultsService} from '@services/starred_results_service';
 
 import {styles as sharedStyles} from './shared.css';
 import {styles as sidebarStyles} from './sidebar.css';

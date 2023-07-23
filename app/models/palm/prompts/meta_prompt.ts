@@ -17,10 +17,10 @@
  * ==============================================================================
  */
 
-import {MetaPromptPromptParams} from '../../../core/shared/interfaces';
+import {MetaPromptPromptParams} from '@core/shared/interfaces';
 import {MetaPromptExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
-import {endsWithPunctuation} from '../../../lib/parse_sentences/utils';
+import {OperationType} from '@core/shared/types';
+import {endsWithPunctuation} from '@lib/parse_sentences/utils';
 import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {

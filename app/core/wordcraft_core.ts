@@ -17,7 +17,7 @@
  * ==============================================================================
  */
 
-import {Constructor} from '../lib/types';
+import {Constructor} from '@lib/types';
 import {Service} from './services/service';
 
 interface ServiceProvider {

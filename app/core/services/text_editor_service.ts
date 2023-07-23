@@ -29,9 +29,9 @@ import {
   SerializedMobileDoc,
   SerializedRange,
   StateSnapshot,
-} from '../../lib/mobiledoc';
-import {UndoManager} from '../../lib/undo_manager';
-import {uuid} from '../../lib/uuid';
+} from '@lib/mobiledoc';
+import {UndoManager} from '@lib/undo_manager';
+import {uuid} from '@lib/uuid';
 import {
   CursorService,
   LocalStorageService,

@@ -23,7 +23,7 @@ import {html, TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {TextInputControl} from '../../core/operations/operation_controls';
+import {TextInputControl} from '@operations/operation_controls';
 import {styles as sharedStyles} from '../shared.css';
 
 import {styles} from './controls.css';

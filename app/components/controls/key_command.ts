@@ -20,10 +20,10 @@ import {MobxLitElement} from '@adobe/lit-mobx';
 import {html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-import {wordcraftCore} from '../../core/wordcraft_core';
-import {KeyboardService} from '../../core/services/keyboard_service';
-import {getMetaKeyString, KeyCommand} from '../../core/shared/keyboard';
-import {OperationTrigger} from '../../core/shared/types';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {KeyboardService} from '@services/keyboard_service';
+import {getMetaKeyString, KeyCommand} from '@core/shared/keyboard';
+import {OperationTrigger} from '@core/shared/types';
 import {styles as sharedStyles} from '../shared.css';
 
 import {styles as controlsStyles} from './controls.css';

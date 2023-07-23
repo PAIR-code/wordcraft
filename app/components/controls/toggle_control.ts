@@ -23,7 +23,7 @@ import {html, TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {styleMap} from 'lit/directives/style-map.js';
 
-import {ToggleControl} from '../../core/operations/operation_controls';
+import {ToggleControl} from '@operations/operation_controls';
 import {styles as sharedStyles} from '../shared.css';
 
 import {styles} from './controls.css';

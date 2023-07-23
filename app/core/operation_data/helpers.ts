@@ -23,15 +23,15 @@
  * the underlying OperationData.
  */
 
-import {SerializedRange} from '../../lib/mobiledoc';
-import {parseSentences} from '../../lib/parse_sentences';
+import {SerializedRange} from '@lib/mobiledoc';
+import {parseSentences} from '@lib/parse_sentences';
 import {
   BoundarySpan,
   getSentenceBoundaries,
   getSpanForOffset,
   SentenceSpan,
   TextSpan,
-} from '../../lib/sentence_boundaries';
+} from '@lib/sentence_boundaries';
 import {OperationData} from '../shared/data';
 
 /** Returns all text from the serialized OperationData */

@@ -17,11 +17,11 @@
  * ==============================================================================
  */
 
-import {parseSentences} from '../../../lib/parse_sentences';
+import {parseSentences} from '@lib/parse_sentences';
 import {wordinessOptions, WordinessOption} from '../../shared';
-import {ReplacePromptParams} from '../../../core/shared/interfaces';
+import {ReplacePromptParams} from '@core/shared/interfaces';
 import {ReplaceExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
 
 function nWordsToWordiness(length: number) {

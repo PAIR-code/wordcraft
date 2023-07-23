@@ -24,9 +24,9 @@ import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
-import {ChatService} from '../core/services/chat_service';
-import {ConfigService} from '../core/services/config_service';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {ChatService} from '@services/chat_service';
+import {ConfigService} from '@services/config_service';
 
 import {styles} from './chat.css';
 import {styles as sharedStyles} from './shared.css';
