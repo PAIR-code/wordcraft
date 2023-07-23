@@ -10,5 +10,15 @@
     "esModuleInterop": true
   },
   "include": ["./app", "./third_party", "./app/globals.d.ts"],
-  "exclude": ["./node_modules", "app/lib"]
+  "exclude": ["./node_modules", "app/lib"],
+  "baseUrl": "app/",
+  "paths": {
+    "@components/*": ["components/*"],
+    "@context/*": ["context/*"],
+    "@core/*": ["core/*"],
+    "@lib/*": ["lib/*"],
+    "@models/*": ["models/*"],
+    "@operations/*": ["core/operations/*"],
+    "@services/*": ["core/services/*"]
+  }
 }

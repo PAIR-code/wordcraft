@@ -39,6 +39,15 @@ module.exports = {
   },
   resolve: {
     extensions: ['.ts', '.ts', '.js', '.css'],
+    alias: {
+      '@components': resolveDir('../app/components'),
+      '@context': resolveDir('../app/context'),
+      '@core': resolveDir('../app/core'),
+      '@lib': resolveDir('..app/lib'),
+      '@models': resolveDir('..app/models'),
+      '@operations': resolveDir('..app/core/operations'),
+      '@services': resolveDir('..app/core/services'),
+    },
   },
   plugins: [
     new DotEnvPlugin(),
@@ -48,7 +57,10 @@ module.exports = {
     }),
     new CopyPlugin({
       patterns: [
-        { from: resolveDir('../app/static/global.css'), to: resolveDir('../dist/global.css') },
+        {
+          from: resolveDir('../app/static/global.css'),
+          to: resolveDir('../dist/global.css'),
+        },
       ],
     }),
   ],
