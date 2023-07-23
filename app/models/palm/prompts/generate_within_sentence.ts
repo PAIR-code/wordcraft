@@ -17,18 +17,14 @@
  * ==============================================================================
  */
 
-import {isWhitespaceOnly, parseSentences} from '../../../lib/parse_sentences';
-import {
-  normalizeSentenceSpaces,
-  reverseString,
-  shuffle,
-} from '../../../lib/utils';
-import {GenerateWithinSentencePromptParams} from '../../../core/shared/interfaces';
+import {isWhitespaceOnly, parseSentences} from '@lib/parse_sentences';
+import {normalizeSentenceSpaces, reverseString, shuffle} from '@lib/utils';
+import {GenerateWithinSentencePromptParams} from '@core/shared/interfaces';
 import {
   GenerateWithinSentenceExample,
   WordcraftContext,
 } from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {

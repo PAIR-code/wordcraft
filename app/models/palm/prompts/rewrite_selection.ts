@@ -17,10 +17,10 @@
  * ==============================================================================
  */
 
-import {shuffle} from '../../../lib/utils';
-import {RewriteSelectionPromptParams} from '../../../core/shared/interfaces';
+import {shuffle} from '@lib/utils';
+import {RewriteSelectionPromptParams} from '@core/shared/interfaces';
 import {RewriteSelectionExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
 
 function capitalize(str: string) {

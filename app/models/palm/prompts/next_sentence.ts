@@ -17,11 +17,11 @@
  * ==============================================================================
  */
 
-import {NextSentencePromptParams} from '../../../core/shared/interfaces';
+import {NextSentencePromptParams} from '@core/shared/interfaces';
 import {NextSentenceExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
-import {parseSentences} from '../../../lib/parse_sentences';
+import {parseSentences} from '@lib/parse_sentences';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(

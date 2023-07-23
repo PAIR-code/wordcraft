@@ -22,7 +22,7 @@
  * boundaries.
  */
 
-import {isWhitespaceOnly, parseSentences} from '../lib/parse_sentences';
+import {isWhitespaceOnly, parseSentences} from '@lib/parse_sentences';
 
 /**
  * A class that describes the sentence boundaries in a paragraph of text.

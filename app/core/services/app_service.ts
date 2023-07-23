@@ -18,7 +18,7 @@
  */
 import {computed, decorate, observable, reaction} from 'mobx';
 
-import {delay} from '../../lib/utils';
+import {delay} from '@lib/utils';
 import {
   ConfigService,
   InitializationService,

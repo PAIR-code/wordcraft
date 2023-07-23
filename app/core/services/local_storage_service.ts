@@ -16,10 +16,10 @@
  * limitations under the License.
  * ==============================================================================
  */
-import {StateSnapshot} from '../../lib/mobiledoc';
+import {StateSnapshot} from '@lib/mobiledoc';
 import {ModelResult, SerializedLog} from '../shared/types';
 import {SavedDocument} from '../services/document_store_service';
-import {uuid} from '../../lib/uuid';
+import {uuid} from '@lib/uuid';
 
 import {Service} from './service';
 

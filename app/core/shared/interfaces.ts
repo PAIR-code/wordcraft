@@ -19,7 +19,7 @@
 import {TemplateResult} from 'lit';
 
 import {Operation} from '../operations/operation';
-import {Model} from '../../models/model';
+import {Model} from '@models/model';
 import {WordcraftContext} from '../../context';
 
 import {

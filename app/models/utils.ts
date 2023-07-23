@@ -17,8 +17,8 @@
  * ==============================================================================
  */
 
-import {uuid} from '../lib/uuid';
-import {ModelResult, ModelResults} from '../core/shared/types';
+import {uuid} from '@lib/uuid';
+import {ModelResult, ModelResults} from '@core/shared/types';
 
 /** Dedupes results with identical text field */
 export function dedupeResults(results: ModelResults) {

@@ -17,9 +17,9 @@
  * ==============================================================================
  */
 
-import {NewStoryPromptParams} from '../../../core/shared/interfaces';
+import {NewStoryPromptParams} from '@core/shared/interfaces';
 import {NewStoryExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {

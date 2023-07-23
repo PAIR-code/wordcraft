@@ -19,7 +19,7 @@
 import {html} from 'lit';
 import * as Mobiledoc from 'mobiledoc-kit';
 
-import {getRandomGenre, getRandomTopic} from '../../lib/topics';
+import {getRandomGenre, getRandomTopic} from '@lib/topics';
 import {ChoiceOperation} from './choice_operation';
 import {TextareaControl} from './operation_controls';
 import {ModelResult, OperationSite, OperationType} from '../shared/types';

@@ -18,26 +18,26 @@
  */
 
 // Core Services
-import {WordcraftCore} from './core/wordcraft_core';
-import {AppService} from './core/services/app_service';
-import {ChatService} from './core/services/chat_service';
-import {ConfigService} from './core/services/config_service';
-import {ContextService} from './core/services/context_service';
-import {CursorService} from './core/services/cursor_service';
-import {DialogService} from './core/services/dialog_service';
-import {DocumentStoreService} from './core/services/document_store_service';
-import {FeatureFlagsService} from './core/services/feature_flags_service';
-import {InitializationService} from './core/services/initialization_service';
-import {KeyboardService} from './core/services/keyboard_service';
-import {LocalStorageService} from './core/services/local_storage_service';
-import {MetaTextService} from './core/services/meta_text_service';
-import {ModelService} from './core/services/model_service';
-import {OperationsService} from './core/services/operations_service';
-import {RouteService} from './core/services/route_service';
-import {SentencesService} from './core/services/sentences_service';
-import {StarredResultsService} from './core/services/starred_results_service';
-import {StatusService} from './core/services/status_service';
-import {TextEditorService} from './core/services/text_editor_service';
+import {WordcraftCore} from '@core/wordcraft_core';
+import {AppService} from '@services/app_service';
+import {ChatService} from '@services/chat_service';
+import {ConfigService} from '@services/config_service';
+import {ContextService} from '@services/context_service';
+import {CursorService} from '@services/cursor_service';
+import {DialogService} from '@services/dialog_service';
+import {DocumentStoreService} from '@services/document_store_service';
+import {FeatureFlagsService} from '@services/feature_flags_service';
+import {InitializationService} from '@services/initialization_service';
+import {KeyboardService} from '@services/keyboard_service';
+import {LocalStorageService} from '@services/local_storage_service';
+import {MetaTextService} from '@services/meta_text_service';
+import {ModelService} from '@services/model_service';
+import {OperationsService} from '@services/operations_service';
+import {RouteService} from '@services/route_service';
+import {SentencesService} from '@services/sentences_service';
+import {StarredResultsService} from '@services/starred_results_service';
+import {StatusService} from '@services/status_service';
+import {TextEditorService} from '@services/text_editor_service';
 
 /**
  * Defines a map of services to their identifier

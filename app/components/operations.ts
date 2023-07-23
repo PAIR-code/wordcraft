@@ -24,14 +24,14 @@ import {MobxLitElement} from '@adobe/lit-mobx';
 import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
-import {Operation} from '../core/operations/operation';
-import {ConfigService} from '../core/services/config_service';
-import {OperationsService} from '../core/services/operations_service';
-import {commandKeys} from '../core/services/text_editor_service';
-import {OperationClass} from '../core/shared/interfaces';
-import {KeyCommand} from '../core/shared/keyboard';
-import {OperationTrigger} from '../core/shared/types';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {Operation} from '@operations/operation';
+import {ConfigService} from '@services/config_service';
+import {OperationsService} from '@services/operations_service';
+import {commandKeys} from '@services/text_editor_service';
+import {OperationClass} from '@core/shared/interfaces';
+import {KeyCommand} from '@core/shared/keyboard';
+import {OperationTrigger} from '@core/shared/types';
 
 import {styles} from './operations.css';
 import {styles as sharedStyles} from './shared.css';

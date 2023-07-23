@@ -16,7 +16,7 @@
  * limitations under the License.
  * ==============================================================================
  */
-import {CancelOperationError, CancelStepError} from '../../../lib/errors';
+import {CancelOperationError, CancelStepError} from '@lib/errors';
 import {StepLifecycle} from '../../shared/types';
 
 export abstract class Step {

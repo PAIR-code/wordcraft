@@ -25,16 +25,16 @@ import {MobxLitElement} from '@adobe/lit-mobx';
 import {css, html, TemplateResult} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
+import {wordcraftCore} from '@core/wordcraft_core';
 import {
   StepSliderControl,
   TextareaControl,
   TextInputControl,
   ToggleControl,
-} from '../core/operations/operation_controls';
-import {OperationsService} from '../core/services/operations_service';
-import {OperationControl, OperationControls} from '../core/shared/interfaces';
-import {OperationTrigger} from '../core/shared/types';
+} from '@operations/operation_controls';
+import {OperationsService} from '@services/operations_service';
+import {OperationControl, OperationControls} from '@core/shared/interfaces';
+import {OperationTrigger} from '@core/shared/types';
 
 import {styles as sharedStyles} from './shared.css';
 

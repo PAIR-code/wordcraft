@@ -18,7 +18,7 @@
  */
 import {reaction} from 'mobx';
 
-import {Choices} from '../../../lib/choices';
+import {Choices} from '@lib/choices';
 import {OperationsService} from '../../services/operations_service';
 import {ModelResult} from '../../shared/types';
 

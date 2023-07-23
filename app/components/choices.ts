@@ -25,15 +25,15 @@ import {html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
-import {preventDefault} from '../lib/utils';
-import {ChoiceOperation, Operation} from '../core/operations';
-import {ChoiceStep} from '../core/operations/steps';
-import {KeyboardService} from '../core/services/keyboard_service';
-import {OperationsService} from '../core/services/operations_service';
-import {StarredResultsService} from '../core/services/starred_results_service';
-import {OperationClass, OperationControls} from '../core/shared/interfaces';
-import {KeyCommand} from '../core/shared/keyboard';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {preventDefault} from '@lib/utils';
+import {ChoiceOperation, Operation} from '@core/operations';
+import {ChoiceStep} from '@operations/steps';
+import {KeyboardService} from '@services/keyboard_service';
+import {OperationsService} from '@services/operations_service';
+import {StarredResultsService} from '@services/starred_results_service';
+import {OperationClass, OperationControls} from '@core/shared/interfaces';
+import {KeyCommand} from '@core/shared/keyboard';
 
 import {styles} from './choices.css';
 import {styles as sharedStyles} from './shared.css';

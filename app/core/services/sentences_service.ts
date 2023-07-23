@@ -19,14 +19,14 @@
 import * as Mobiledoc from 'mobiledoc-kit';
 import {computed, decorate, observable} from 'mobx';
 
-import {SerializedRange} from '../../lib/mobiledoc';
-import {parseSentences} from '../../lib/parse_sentences';
+import {SerializedRange} from '@lib/mobiledoc';
+import {parseSentences} from '@lib/parse_sentences';
 import {
   getSentenceBoundaries,
   getSpanForOffset,
   ParagraphData,
   SentenceSpan,
-} from '../../lib/sentence_boundaries';
+} from '@lib/sentence_boundaries';
 import {CursorService, TextEditorService} from './services';
 
 import {Service} from './service';

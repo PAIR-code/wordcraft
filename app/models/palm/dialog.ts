@@ -17,12 +17,12 @@
  * ==============================================================================
  */
 
-import {DialogParams} from '../../core/shared/interfaces';
+import {DialogParams} from '@core/shared/interfaces';
 import {DialogModel} from '../dialog_model';
 import {callDialogModel, ModelParams} from './api';
 import {createModelResults} from '../utils';
 
-import {ContextService, StatusService} from '../../core/services/services';
+import {ContextService, StatusService} from '@services/services';
 
 interface ServiceProvider {
   contextService: ContextService;

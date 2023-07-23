@@ -19,8 +19,8 @@
 import {html} from 'lit';
 import {styleMap} from 'lit/directives/style-map.js';
 
-import {SerializedRange} from '../../lib/mobiledoc';
-import {createModelResult} from '../../models/utils';
+import {SerializedRange} from '@lib/mobiledoc';
+import {createModelResult} from '@models/utils';
 import * as helpers from '../operation_data/helpers';
 import {
   ModelResult,

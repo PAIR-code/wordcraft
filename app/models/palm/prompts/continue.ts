@@ -17,9 +17,9 @@
  * ==============================================================================
  */
 
-import {ContinuePromptParams} from '../../../core/shared/interfaces';
+import {ContinuePromptParams} from '@core/shared/interfaces';
 import {ContinueExample, WordcraftContext} from '../../../context';
-import {OperationType} from '../../../core/shared/types';
+import {OperationType} from '@core/shared/types';
 import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {

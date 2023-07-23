@@ -16,15 +16,15 @@
  * limitations under the License.
  * ==============================================================================
  */
-import './shared_components/primitives/error_message';
+import '@components/shared_components/primitives/error_message';
 
 import {MobxLitElement} from '@adobe/lit-mobx';
 import {html} from 'lit';
 import {customElement} from 'lit/decorators.js';
 
-import {wordcraftCore} from '../core/wordcraft_core';
-import {AppService} from '../core/services/app_service';
-import {DocumentStoreService} from '../core/services/document_store_service';
+import {wordcraftCore} from '@core/wordcraft_core';
+import {AppService} from '@services/app_service';
+import {DocumentStoreService} from '@services/document_store_service';
 
 import {styles} from './onboarding.css';
 import {styles as sharedStyles} from './shared.css';
