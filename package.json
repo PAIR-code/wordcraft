@@ -24,7 +24,8 @@
     "@webcomponents/webcomponentsjs": "^2.7.0",
     "lit": "2.0.0",
     "mobiledoc-kit": "^0.15.0",
-    "mobx": "5.15.4"
+    "mobx": "5.15.4",
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/eslint": "^8.0.0",

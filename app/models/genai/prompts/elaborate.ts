@@ -18,8 +18,7 @@
  */
 
 import {ElaboratePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {ElaborateExample} from '../../../context/examples/index';
+import {ElaborateExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 

@@ -19,8 +19,7 @@
 
 import {shuffle} from '../../../lib/utils';
 import {FreeformPromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {FreeformExample} from '../../../context/examples/index';
+import {FreeformExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 

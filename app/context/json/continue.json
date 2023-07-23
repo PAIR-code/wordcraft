@@ -1,0 +1,18 @@
+[
+  {
+    "input": "A young boy was sitting on the sidewalk.",
+    "target": "He was holding a lantern and looking ahead up the road."
+  },
+  {
+    "input": "The preacher took a long breath, and let it out",
+    "target": "slowly through his nose. \"It wasn't long ago,\" he said, \"that those boys would've been dead and buried."
+  },
+  {
+    "input": "The leaves had begun to change to a deep",
+    "target": "auburn. A single, golden leaf had floated to the ground; caught in the sudden windstorm. The day had seemed so serene and peaceful just moments before."
+  },
+  {
+    "input": "The clock chimed again,",
+    "target": "bringing her back to reality. The sound had become a constant companion since she had arrived that morning, a welcome companion in an empty house."
+  }
+]

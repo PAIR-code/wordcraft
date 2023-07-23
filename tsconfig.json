@@ -5,7 +5,9 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "removeComments": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "include": ["./app", "./third_party", "./app/globals.d.ts"],
   "exclude": ["./node_modules", "app/lib"]

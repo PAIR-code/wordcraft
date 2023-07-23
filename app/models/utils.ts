@@ -18,21 +18,7 @@
  */
 
 import {uuid} from '../lib/uuid';
-import {ModelResult, ModelResults, TextType} from '../core/shared/types';
-
-/** Gets a string representation of the TextType for use in prompts */
-export function getTextFromTextType(textType: TextType): string {
-  if (textType === TextType.SENTENCE) {
-    return 'sentence';
-  }
-  if (textType === TextType.WORD) {
-    return 'word';
-  }
-  if (textType === TextType.PHRASE) {
-    return 'phrase';
-  }
-  return 'text';
-}
+import {ModelResult, ModelResults} from '../core/shared/types';
 
 /** Dedupes results with identical text field */
 export function dedupeResults(results: ModelResults) {

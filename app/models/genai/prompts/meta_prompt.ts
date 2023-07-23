@@ -18,8 +18,7 @@
  */
 
 import {MetaPromptPromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {MetaPromptExample} from '../../../context/examples/index';
+import {MetaPromptExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {endsWithPunctuation} from '../../../lib/parse_sentences/utils';
 import {GenAIModel} from '../../genai';
@@ -36,17 +35,17 @@ export function makePromptHandler(
 
   function makePromptContext(examples: MetaPromptExample[]) {
     let promptContext = model.getPromptPreamble();
-    examples.forEach(({text, instruction}) => {
+    examples.forEach(({text, target}) => {
       const prompt = generatePrompt(text);
-      promptContext += `${prompt} ${model.wrap(instruction)}\n\n`;
+      promptContext += `${prompt} ${model.wrap(target)}\n\n`;
     });
     return promptContext;
   }
 
   function doExamplesEndWithPunctuation(examples: MetaPromptExample[]) {
     for (const example of examples) {
-      const {instruction} = example;
-      if (endsWithPunctuation(instruction)) {
+      const {target} = example;
+      if (endsWithPunctuation(target)) {
         return true;
       }
     }
