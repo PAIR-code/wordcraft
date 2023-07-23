@@ -18,10 +18,10 @@
  */
 
 import {NextSentencePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {NextSentenceExample} from '../../../context/examples';
+import {NextSentenceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
+import {parseSentences} from '../../../lib/parse_sentences';
 
 export function makePromptHandler(
   model: GenAIModel,
@@ -61,7 +61,8 @@ export function makePromptHandler(
     let promptContext = model.getPromptPreamble();
     for (let i = 0; i < examples.length; i++) {
       const data = examples[i];
-      const {sentences, targetSentenceIndex} = data;
+      const {fullText, targetSentenceIndex} = data;
+      const sentences = parseSentences(fullText);
 
       const textBeforeBlank = sentences
         .slice(0, targetSentenceIndex)

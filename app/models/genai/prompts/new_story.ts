@@ -18,8 +18,7 @@
  */
 
 import {NewStoryPromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {NewStoryExample} from '../../../context/examples';
+import {NewStoryExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 

@@ -19,8 +19,7 @@
 
 import {shuffle} from '../../../lib/utils';
 import {RewriteSelectionPromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {RewriteSelectionExample} from '../../../context/examples';
+import {RewriteSelectionExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 
@@ -90,7 +89,7 @@ export function makePromptHandler(
       post,
       toRewrite,
       howToRewrite,
-      nWords: undefined,
+      nWords: '',
     });
 
     const inputText = promptContext + prompt;

@@ -69,10 +69,10 @@ export const enum StepLifecycle {
 }
 
 export const enum TextType {
-  WORD = 'WORD', // A single word or entity (e.g. cat, city-state)
-  PHRASE = 'PHRASE', // Semantically grouped words (e.g. the big red dog)
-  SENTENCE = 'SENTENCE', // A complete sentence
-  TEXT = 'TEXT', // Unstructured text
+  WORD = 'word', // A single word or entity (e.g. cat, city-state)
+  PHRASE = 'phrase', // Semantically grouped words (e.g. the big red dog)
+  SENTENCE = 'sentence', // A complete sentence
+  TEXT = 'text', // Unstructured text
 }
 
 export interface EditorMetaText {

@@ -25,7 +25,7 @@
     "lit": "2.0.0",
     "mobiledoc-kit": "^0.15.0",
     "mobx": "5.15.4",
-    "yup": "^1.2.0"
+    "zod": "^3.21.4"
   },
   "devDependencies": {
     "@types/eslint": "^8.0.0",

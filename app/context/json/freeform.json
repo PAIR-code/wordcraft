@@ -1,0 +1,62 @@
+[
+  {
+    "prefix": "Story:",
+    "instruction": "Describe the car.",
+    "text": "The car came bouncing down the hill and came to an abrupt stop in my driveway.",
+    "target": "It was an old, old Model-T Ford, with brass fittings, and no doors"
+  },
+  {
+    "prefix": "Text:",
+    "instruction": "Rewrite the text to be about France.",
+    "text": "next to the path",
+    "target": "next to la Siene"
+  },
+  {
+    "prefix": "Story:",
+    "instruction": "Tell me what comes next.",
+    "text": "The preacher took a long breath, and let it out",
+    "target": "slowly through his nose. \"It wasn't long ago,\" he said, \"that those boys would've been dead and buried."
+  },
+  {
+    "prefix": "Text:",
+    "instruction": "Rewrite the text to include the word \"snow\":",
+    "text": "against the tree",
+    "target": "against the snow-covered bark of the tree"
+  },
+  {
+    "prefix": "Story:",
+    "instruction": "Tell me what comes next.",
+    "text": "A young boy was sitting on the sidewalk.",
+    "target": "He was holding a lantern and looking ahead up the road."
+  },
+  {
+    "prefix": "Story:",
+    "instruction": "Describe last Saturday.",
+    "text": "My pencil sits on top of the desk, left there since the events of last Saturday.",
+    "target": "It was one of those Saturdays that starts off like any other but you have the feeling that something is about to stir. You wake up with the same amount of enthusiasm but you get up from bed a little slower than usual. You know this is going to be a busy day"
+  },
+  {
+    "prefix": "Story:",
+    "instruction": "Describe what had happened:",
+    "text": "She wasn't really upset about what had happened at the lab the other day; she was never one to dwell on mistakes.",
+    "target": "She had accidentally left the microorganisms alone for far too long. The lab, or what was left of it, was now filled with a strong aroma of their slime-- they had devoured all the metal, wood, and plastic they could find"
+  },
+  {
+    "prefix": "Text:",
+    "instruction": "Rewrite the text to be about clowns.",
+    "text": "The man stood outside the grocery store, ringing the bell.",
+    "target": "The man stood outside the circus, holding a bunch of balloons."
+  },
+  {
+    "prefix": "Story:",
+    "instruction": "Tell me what comes next.",
+    "text": "The clock chimed again,",
+    "target": "bringing her back to reality. The sound had become a constant companion since she had arrived that morning, a welcome companion in an empty house."
+  },
+  {
+    "prefix": "Story:",
+    "instruction": "Describe the tree.",
+    "text": "The long shadow of the tree crept up the sidewalk",
+    "target": "It was an old oak tree on the main street of a small town, the branches spread as large as the sky."
+  }
+]

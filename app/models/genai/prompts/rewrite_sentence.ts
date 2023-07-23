@@ -19,8 +19,7 @@
 
 import {shuffle} from '../../../lib/utils';
 import {RewriteSentencePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {RewriteSentenceExample} from '../../../context/examples';
+import {RewriteSentenceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 

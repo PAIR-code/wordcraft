@@ -19,8 +19,7 @@
 
 import {parseSentences} from '../../../lib/parse_sentences';
 import {RewriteEndOfSentencePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {RewriteEndOfSentenceExample} from '../../../context/examples';
+import {RewriteEndOfSentenceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 
@@ -52,8 +51,9 @@ export function makePromptHandler(
     let promptContext = model.getPromptPreamble();
     for (let i = 0; i < examples.length; i++) {
       const example = examples[i];
-      const {sentences, targetSentenceIndex, targetSentenceCharacterOffset} =
+      const {fullText, targetSentenceIndex, targetSentenceCharacterOffset} =
         example;
+      const sentences = parseSentences(fullText);
       let textBeforeBlank = '';
       let textAfterBlank = '';
 

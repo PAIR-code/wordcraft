@@ -18,10 +18,10 @@
  */
 
 import {FirstSentencePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {FirstSentenceExample} from '../../../context/examples/index';
+import {FirstSentenceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
+import {parseSentences} from '../../../lib/parse_sentences';
 
 export function makePromptHandler(
   model: GenAIModel,
@@ -43,7 +43,10 @@ export function makePromptHandler(
     let promptContext = model.getPromptPreamble();
     for (let i = 0; i < examples.length; i++) {
       const data = examples[i];
-      const {firstSentence, nextSentences} = data;
+      const {fullText} = data;
+      const sentences = parseSentences(fullText);
+      const [firstSentence, ...nextSentencesArr] = sentences;
+      const nextSentences = nextSentencesArr.join(' ');
       const prompt = generatePrompt(nextSentences);
       promptContext += `${prompt} ${model.wrap(firstSentence)}\n\n`;
     }
@@ -51,7 +54,6 @@ export function makePromptHandler(
   }
 
   return async function firstSentence(params: FirstSentencePromptParams) {
-    console.log('first sentence prompt');
     const promptContext = getPromptContext();
     const prompt = generatePrompt(params.text);
     const inputText = promptContext + prompt;

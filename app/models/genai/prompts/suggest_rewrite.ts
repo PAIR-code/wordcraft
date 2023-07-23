@@ -18,8 +18,7 @@
  */
 
 import {SuggestRewritePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {SuggestRewriteExample} from '../../../context/examples';
+import {SuggestRewriteExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {TextType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
@@ -41,12 +40,12 @@ export function makePromptHandler(
 
   function makePromptContext(textType: TextType) {
     const examples = context.getExampleData<SuggestRewriteExample>(
-      OperationType.SUGGEST_REWRITE,
-      textType
+      OperationType.SUGGEST_REWRITE
     );
 
     let promptContext = model.getPromptPreamble();
-    examples.forEach(({text, toRewrite, target}) => {
+    examples.forEach(({text, sizes}) => {
+      const {target, toRewrite} = sizes[textType];
       const prompt = generatePrompt(text, toRewrite);
 
       promptContext += `${prompt} ${model.wrap(target)}\n\n`;

@@ -20,8 +20,7 @@
 import {parseSentences} from '../../../lib/parse_sentences';
 import {wordinessOptions, WordinessOption} from '../../shared';
 import {ReplacePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {ReplaceExample} from '../../../context/examples';
+import {ReplaceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 
@@ -61,9 +60,9 @@ export function makePromptHandler(
   function makePromptContext(examples: ReplaceExample[], nWords: number) {
     const blankText = model.getBlank();
     let promptContext = model.getPromptPreamble();
-    examples.forEach(({pre, wordinessOptions, post}) => {
+    examples.forEach(({pre, targets, post}) => {
       const wordiness = nWordsToWordiness(nWords);
-      const toReplace = wordinessOptions[wordiness.index];
+      const toReplace = targets[wordiness.index];
 
       const prompt = generatePrompt(pre, post, nWords, blankText);
       promptContext += `${prompt} ${model.wrap(toReplace)}\n\n`;

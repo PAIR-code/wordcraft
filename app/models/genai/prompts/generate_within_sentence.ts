@@ -24,8 +24,10 @@ import {
   shuffle,
 } from '../../../lib/utils';
 import {GenerateWithinSentencePromptParams} from '../../../core/shared/interfaces';
-import {WordcraftContext} from '../../../context';
-import {GenerateWithinSentenceExample} from '../../../context/examples/index';
+import {
+  GenerateWithinSentenceExample,
+  WordcraftContext,
+} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {GenAIModel} from '../../genai';
 
@@ -59,9 +61,10 @@ export function makePromptHandler(
     const shuffled = shuffle(examples);
     for (let i = 0; i < shuffled.length; i++) {
       const example = shuffled[i];
-      const {sentences, targetSentenceIndex, target} = example;
+      const {fullText, targetSentenceIndex, target} = example;
       let textBeforeBlank = '';
       let textAfterBlank = '';
+      const sentences = parseSentences(fullText);
       const targetSentence = sentences[targetSentenceIndex];
 
       const start = targetSentence.indexOf(target);
