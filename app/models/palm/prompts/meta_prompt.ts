@@ -21,12 +21,9 @@ import {MetaPromptPromptParams} from '../../../core/shared/interfaces';
 import {MetaPromptExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
 import {endsWithPunctuation} from '../../../lib/parse_sentences/utils';
-import {GenAIModel} from '../../genai';
+import {PalmModel} from '..';
 
-export function makePromptHandler(
-  model: GenAIModel,
-  context: WordcraftContext
-) {
+export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(text: string) {
     const prefix = model.getStoryPrefix();
     const suffix = 'Next prompt:';

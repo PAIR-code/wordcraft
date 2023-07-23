@@ -21,16 +21,13 @@ import {shuffle} from '../../../lib/utils';
 import {RewriteSelectionPromptParams} from '../../../core/shared/interfaces';
 import {RewriteSelectionExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
-import {GenAIModel} from '../../genai';
+import {PalmModel} from '..';
 
 function capitalize(str: string) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export function makePromptHandler(
-  model: GenAIModel,
-  context: WordcraftContext
-) {
+export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function insertBlank(pre: string, post: string) {
     return `${pre}${model.getBlank()}${post}`;
   }

@@ -20,12 +20,9 @@
 import {ElaboratePromptParams} from '../../../core/shared/interfaces';
 import {ElaborateExample, WordcraftContext} from '../../../context';
 import {OperationType} from '../../../core/shared/types';
-import {GenAIModel} from '../../genai';
+import {PalmModel} from '..';
 
-export function makePromptHandler(
-  model: GenAIModel,
-  context: WordcraftContext
-) {
+export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(text: string, subject: string) {
     const prefix = model.getStoryPrefix();
     const suffix = `Describe "${subject}" in more detail.`;

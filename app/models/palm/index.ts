@@ -53,9 +53,9 @@ interface ServiceProvider {
 }
 
 /**
- * A Model representing GenAI API.
+ * A Model representing PaLM API.
  */
-export class GenAIModel extends Model {
+export class PalmModel extends Model {
   constructor(serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }
