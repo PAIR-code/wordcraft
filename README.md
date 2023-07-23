@@ -72,11 +72,22 @@ updating the text editor, and handles user choices.
 Defines how the data from the `Context` is combined with an `Operation` state to
 construct text that will be sent to a mode, and parses model output.
 
+## Customizing context
+
+The Wordcraft application uses few-shot examples for constructing prompts to
+send to the model. The style of the generated text is influenced by these
+examples, and you can customize Wordcraft's style or genre by editing these
+examples. These examples are found in `/app/context/json`, and follow a schema
+defined in `/app/context/schema`.
+
 ## Adding new controls
 
 To add a new custom control (e.g. a button that translates into pig latin):
 
-- Create a new `PigLatinExamples` in `/app/context/examples`
+- Create a new `pigLatinSchema` in `/app/context/schema.ts`
+- Create a new `pig_latin_examples.json` in `/app/context/json/`
+- Register the examples int the `WordCraftContext` constructor
+  (`/app/context/index.ts`)
 - Create a corresponding prompt handler in `/app/models/palm/prompts`
 - Register that prompt handler with the underlying `Model` class in
   `/app/models/palm/index.ts`
