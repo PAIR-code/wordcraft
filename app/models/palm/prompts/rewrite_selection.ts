@@ -67,7 +67,7 @@ export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
     const wordOrPhrase = nWordsToBeReplaced === 1 ? 'word' : 'phrase';
 
     const textWithBlank = insertBlank(pre, post);
-    const prefix = model.getStoryPrefix();
+    const prefix = model.getDocumentPrefix();
     const suffix = `The ${wordOrPhrase} to be rewritten that fills in the blank: `;
 
     const rewrittenPiece = makeRewrittenPiece(toRewrite, nWords, howToRewrite);

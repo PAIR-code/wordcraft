@@ -21,6 +21,7 @@ import {shuffle} from '@lib/utils';
 import {FreeformPromptParams} from '@core/shared/interfaces';
 import {FreeformExample, WordcraftContext} from '../../../context';
 import {OperationType} from '@core/shared/types';
+import {capitalize} from '@lib/utils';
 import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
@@ -31,11 +32,11 @@ export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
     const selected = shuffle(examples).slice(0, 4);
     let promptContext = model.getPromptPreamble();
     selected.forEach((example: FreeformExample) => {
-      const prefix = example.prefix;
+      const textType = example.textType;
       const instruction = example.instruction;
       const {text, target} = example;
 
-      promptContext += `${prefix} ${model.wrap(
+      promptContext += `${capitalize(textType)}: ${model.wrap(
         text
       )}\n${instruction} ${model.wrap(target)}\n\n`;
     });
@@ -43,7 +44,7 @@ export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   }
 
   function generatePrompt(text: string, instruction: string) {
-    const prefix = model.getStoryPrefix();
+    const prefix = model.getDocumentPrefix();
     return `${prefix} ${text}\n${instruction}`;
   }
 

@@ -29,7 +29,7 @@ export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
     textAfterBlank: string,
     sentenceBeforeBlank: string
   ) {
-    const prefix = model.getStoryPrefix();
+    const prefix = model.getDocumentPrefix();
     const blank = model.getBlank();
 
     if (textAfterBlank && textBeforeBlank) {

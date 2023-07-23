@@ -38,7 +38,7 @@ export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
     const textWithBlank = `${textBeforeBlank} ${blank} ${textAfterBlank}`;
     const sentenceWithBlank = `${sentenceBeforeBlank} ${blank} ${sentenceAfterBlank}`;
 
-    const prefix = model.getStoryPrefix();
+    const prefix = model.getDocumentPrefix();
     const suffix = `Sentence with blank: ${model.wrap(
       sentenceWithBlank
     )}\nSentence with blank filled in:`;

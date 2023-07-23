@@ -25,7 +25,7 @@ import {parseSentences} from '@lib/parse_sentences';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(textAfterBlank: string) {
-    const prefix = model.getStoryPrefix();
+    const prefix = model.getDocumentPrefix();
     const suffix = 'Tell me the first sentence that fills in the blank: ';
     const withBlank = `${model.getBlank()} ${textAfterBlank}`;
 

@@ -65,7 +65,7 @@ export abstract class Model {
     return '';
   }
 
-  abstract getStoryPrefix(): string;
+  abstract getDocumentPrefix(): string;
 
   insertBlank(pre: string, post: string) {
     return `${pre}${this.getBlank()}${post}`;

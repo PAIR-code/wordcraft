@@ -44,7 +44,7 @@ export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
     const sentence = parseSentences(fullText)[blankedSentIndex];
 
     const wordiness = nWordsToWordiness(nWords).text;
-    const prefix = model.getStoryPrefix();
+    const prefix = model.getDocumentPrefix();
     const instruction = `Sentence with blank: ${model.wrap(
       sentence
     )}\nFill in the blank with ${

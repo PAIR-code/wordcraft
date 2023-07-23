@@ -53,7 +53,7 @@ export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
     howToRewrite: string
   ) {
     const storyWithBlank = insertBlank(pre, post);
-    const prefix = model.getStoryPrefix();
+    const prefix = model.getDocumentPrefix();
     const sentenceStatement = 'Sentence in the blank:';
     const sentenceInstruction = `Rewrite this sentence to ${howToRewrite}, only rewriting this specific sentence and nothing more:`;
 

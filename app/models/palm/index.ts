@@ -31,6 +31,7 @@ import {makePromptHandler as rewriteSelection} from './prompts/rewrite_selection
 import {makePromptHandler as rewriteSentence} from './prompts/rewrite_sentence';
 import {makePromptHandler as suggestRewrite} from './prompts/suggest_rewrite';
 import {ModelResults} from '@core/shared/types';
+import {capitalize} from '@lib/utils';
 import {Model} from '../model';
 import {callTextModel, ModelParams} from './api';
 import {
@@ -64,12 +65,12 @@ export class PalmModel extends Model {
     return BLANK;
   }
 
-  override getStoryPrefix() {
-    return 'Story: ';
+  override getDocumentPrefix() {
+    return `${capitalize(this.context.documentType)}: `;
   }
 
   getPromptPreamble() {
-    return 'I am an expert writing assistant, and can expertly write and edit stories.\n\n';
+    return `${this.context.preamble}.\n\n`;
   }
 
   override wrap(text: string) {

@@ -25,10 +25,10 @@ import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(text: string, toRewrite: string) {
-    const prefix = model.getStoryPrefix();
+    const documentPrefix = model.getDocumentPrefix();
     const instruction = `Here's the sentence to rewrite: `;
 
-    const storyText = `${prefix} ${model.wrap(
+    const storyText = `${documentPrefix} ${model.wrap(
       text
     )}\n${instruction} ${model.wrap(toRewrite)}`;
 

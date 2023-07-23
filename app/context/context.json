@@ -1,0 +1,463 @@
+{
+  "documentType": "story",
+  "preamble": "I am an expert writing assistant.",
+  "stories": {
+    "kentucky": "There once was a man named Kentucky, who could play the guitar like nobody's business. He loved to play the guitar so that he could hear the guitar sing along to him, to hear the guitar's melodic hum. Kentucky was a lonely man living in a lonely house in the middle of nowhere with only his favorite guitar to keep him company. Now this guitar had been owned by many-a-man, and all of them had come to the same fate. They played the guitar until the guitar played them.",
+    "secretary": "A secretary went about her daily work, while her company was being relocated from Chicago to New York City. It was tough, but she remained adaptable throughout the process.",
+    "deathbed": "The old man was laying on his deathbed, the only thing he could hear was his own heartbeat inside his ear. He knew he had an hour left to live, and he was so filled with despair. \"I have no regrets, for I have led a good life.\" However, in the next moment, a nurse entered the room, and he quickly said to her, \"One regret, now that I have time to think on it. I wish I had talked less and listened more.\" Before dying, the man decided to have one more conversation with his children, his wife and his friends.",
+    "explorers": "A small group of explorers landed in China, and were amazed by the beautiful, sparkling buildings. They wondered how such a beautiful country could ever be as scary as they had heard. It was at night, and the explorers were deep in the heart of the forbidden city, their flashlights not strong enough to reach the bottom of the narrow, dark hallways. Suddenly, a terrifying sound echoed through the halls.",
+    "datacenter": "There was once a fairy living in a datacenter. It was a place filled with lights and noise, and the fairy loved it. The fairy lived on a mountain of Ethernet cables. She liked the way they glittered in the fluorescent artificial light that filled the room. The noise from the constant chatter of the servers, like a babbling brook, lulled her to sleep."
+  },
+  "examples": {
+    "elaborate": [
+      {
+        "text": "The long shadow of the tree crept up the sidewalk",
+        "toElaborate": "the tree",
+        "target": "It was an old oak tree on the main street of a small town, the branches spread as large as the sky."
+      },
+      {
+        "text": "The car came bouncing down the hill and came to an abrupt stop in my driveway",
+        "toElaborate": "the car",
+        "target": "It was an old, old Model-T Ford, with brass fittings, and no doors"
+      },
+      {
+        "text": "My pencil sits on top of the desk, left there since the events of last Saturday",
+        "toElaborate": "last Saturday",
+        "target": "It was one of those Saturdays that starts off like any other but you have the feeling that something is about to stir. You wake up with the same amount of enthusiasm but you get up from bed a little slower than usual. You know this is going to be a busy day"
+      },
+      {
+        "text": "She wasn't really upset about what had happened at the lab the other day; she was never one to dwell on mistakes.",
+        "toElaborate": "what had happened",
+        "target": "She had accidentally left the microorganisms alone for far too long. The lab, or what was left of it, was now filled with a strong aroma of their slime-- they had devoured all the metal, wood, and plastic they could find"
+      }
+    ],
+    "freeform": [
+      {
+        "textType": "story",
+        "instruction": "Describe the car.",
+        "text": "The car came bouncing down the hill and came to an abrupt stop in my driveway.",
+        "target": "It was an old, old Model-T Ford, with brass fittings, and no doors"
+      },
+      {
+        "textType": "text",
+        "instruction": "Rewrite the text to be about France.",
+        "text": "next to the path",
+        "target": "next to la Siene"
+      },
+      {
+        "textType": "story",
+        "instruction": "Tell me what comes next.",
+        "text": "The preacher took a long breath, and let it out",
+        "target": "slowly through his nose. \"It wasn't long ago,\" he said, \"that those boys would've been dead and buried."
+      },
+      {
+        "textType": "text",
+        "instruction": "Rewrite the text to include the word \"snow\":",
+        "text": "against the tree",
+        "target": "against the snow-covered bark of the tree"
+      },
+      {
+        "textType": "story",
+        "instruction": "Tell me what comes next.",
+        "text": "A young boy was sitting on the sidewalk.",
+        "target": "He was holding a lantern and looking ahead up the road."
+      },
+      {
+        "textType": "story",
+        "instruction": "Describe last Saturday.",
+        "text": "My pencil sits on top of the desk, left there since the events of last Saturday.",
+        "target": "It was one of those Saturdays that starts off like any other but you have the feeling that something is about to stir. You wake up with the same amount of enthusiasm but you get up from bed a little slower than usual. You know this is going to be a busy day"
+      },
+      {
+        "textType": "story",
+        "instruction": "Describe what had happened:",
+        "text": "She wasn't really upset about what had happened at the lab the other day; she was never one to dwell on mistakes.",
+        "target": "She had accidentally left the microorganisms alone for far too long. The lab, or what was left of it, was now filled with a strong aroma of their slime-- they had devoured all the metal, wood, and plastic they could find"
+      },
+      {
+        "textType": "text",
+        "instruction": "Rewrite the text to be about clowns.",
+        "text": "The man stood outside the grocery store, ringing the bell.",
+        "target": "The man stood outside the circus, holding a bunch of balloons."
+      },
+      {
+        "textType": "story",
+        "instruction": "Tell me what comes next.",
+        "text": "The clock chimed again,",
+        "target": "bringing her back to reality. The sound had become a constant companion since she had arrived that morning, a welcome companion in an empty house."
+      },
+      {
+        "textType": "story",
+        "instruction": "Describe the tree.",
+        "text": "The long shadow of the tree crept up the sidewalk",
+        "target": "It was an old oak tree on the main street of a small town, the branches spread as large as the sky."
+      }
+    ],
+    "metaPrompt": [
+      {
+        "text": "A long time ago, in the beginning of time, beautiful crystalline frog people inhabited the earth. Their king, the crystal king, had mysteriously disappeared on a trip to the sea.",
+        "question": "What were the frog people like?",
+        "target": "Tell me more about the frog people."
+      },
+      {
+        "text": "The green knight rode atop his majestic, beautiful horse, across fields of pure green. In his palm was a magical, sparkling golden sword.",
+        "question": "What happened next?",
+        "target": "Tell me what happened next."
+      },
+      {
+        "text": "Ninja schools are where the ninjas are trained for their missions. Some are trained in the forests and snowy mountains and others are given the ultimate training in the hottest palace in the land.",
+        "question": "What were the ninjas like?",
+        "target": "Tell me about the ninjas"
+      },
+      {
+        "text": "The witch doctor had a large pile of magic stones. All the magic stones had a power - healing magic, shapeshifting, seeing into the past.",
+        "question": "What did the witch doctor do with them?",
+        "target": "Tell me what the witch doctor did with them."
+      },
+      {
+        "text": "The desert sun beat down on the sand, and tiny bits of sand flew with every step. The two young travelers trudged onward. They were tired, but they knew they had to go forward.",
+        "question": "What were the two travelers like?",
+        "target": "Tell me more about the two travelers."
+      },
+      {
+        "text": "A prince and princess from the future set out in search of the mythical land of the unicorns. They had heard tale of magical unicorn dust that could heal any wound.",
+        "question": "What was their journey like?",
+        "target": "Tell me what their journey was like."
+      },
+      {
+        "text": "A giant monster was chasing after a woman and yelling at her to get away. The woman ran, knowing that she was in horrible danger.",
+        "question": "Why was the monster chasing her?",
+        "target": "Tell me why the monster was chasing her."
+      }
+    ],
+    "newStory": [
+      {
+        "topic": "A space monkey needs to escape from his dying planet.",
+        "target": "It was a cold, dark night on an unknown planet. In a field, a male monkey was pacing back and forth. He had been trying to figure something out, but nothing seemed to be working. He didn't have much time left."
+      },
+      {
+        "topic": "A medieval romance where a group of colorful knights do battle.",
+        "target": "The green knight rode atop his majestic, beautiful horse, across fields of pure green. In his palm was a magical, sparkling golden sword."
+      },
+      {
+        "topic": "An old man with a magical box tries to solve a mystery as his memories gradually fade away.",
+        "target": "The old man decided that he should look inside the box, and in the box there was a key. The old man couldn’t quite remember why he had a key, but he knew the key was important."
+      },
+      {
+        "topic": "A coven of witches have taken up residence outside of a quiet mountain town, but they're not interested in witchcraft, they're interested in making hip-hop.",
+        "target": "An evil looking tree was growing off in the distance with no leaves and long, pointy branches. It was a sickly green and was swaying eerily without the wind."
+      },
+      {
+        "topic": "After an ancient sea-worn bottle washes up on the shores of Tripoli, a group of rag-tag pirates open it up to find a map leading to a magical treasure.",
+        "target": "A group of pirates set out to sea in search of a magical treasure - a long, sparkling blue necklace called the night's eye."
+      }
+    ],
+    "replace": [
+      {
+        "pre": "An elderly man was sitting alone on a dark path. The man looked down at his feet, and realized ",
+        "toReplace": "he was holding a bright red box made of pine",
+        "targets": [
+          "something",
+          "something incredible",
+          "he was holding a bright red box made of pine",
+          "he was holding a bright red box made of pine, but he had no idea where it came from.",
+          "he was holding a bright red box made of pine, but he had no idea where it came from."
+        ],
+        "post": ". It was a plain pine box and looked as if it had been there for a long time. The man was afraid to look inside the box."
+      },
+      {
+        "pre": "The mantle was cluttered with objects: ",
+        "toReplace": "picture frames showing grandchildren and long-ago weddings, knickknacks collected from all over the world, ",
+        "targets": [
+          "knickknacks",
+          "picture frames showing grandchildren",
+          "picture frames showing grandchildren and long-ago weddings, knickknacks collected from all over the world, ",
+          "picture frames showing grandchildren and long-ago weddings, knickknacks collected from all over the world, intricate decorative figurines",
+          "picture frames showing grandchildren and long-ago weddings, knickknacks collected from all over the world, intricate decorative figurines"
+        ],
+        "post": "and more than one vase of dried flowers. The bejeweled lamp was at the very back, nearly invisible."
+      },
+      {
+        "pre": "\"We have to leave now!\" I shouted. ",
+        "toReplace": "\"The zombies are going to break through any moment, and then we'll all be goners.\" ",
+        "targets": [
+          "\"Hurry!\"",
+          "\"Let's get out of here!\"",
+          "\"The zombies are going to break through any moment, and then we'll all be goners.\" ",
+          "\"The zombies are going to break through any moment, and then we'll all be goners! We've got to hurry!\" ",
+          "\"The zombies are going to break through any moment, and then we'll all be goners! We've got to hurry!\" "
+        ],
+        "post": "The only way out was up. We climbed flight after flight. The sound of the monsters banging on the door below became more distant but no less threatening."
+      },
+      {
+        "pre": "The sun was shining, and little gusts of wind brought through the window ",
+        "toReplace": "the faint scents of honeysuckle and freshly turned soil. It was a ",
+        "targets": [
+          "sweet scents. It was a",
+          "the faint scent of huneysuckle. It was a",
+          "the faint scents of honeysuckle and freshly turned soil. It was a ",
+          "the faint scents of honeysuckle, newly cut grass, and freshly turned soil. It was a ",
+          "the faint scents of honeysuckle, newly cut grass, and freshly turned soil. It was a "
+        ],
+        "post": "shocking contrast from the stale city smells she had grown used to."
+      },
+      {
+        "pre": "I was minding my business at the park, when I was approached by a little girl who was crying because she had lost ",
+        "toReplace": "her cat, which she had just received for her birthday. She did not want her parents to know she'd already lost him. I'm a good person ",
+        "targets": [
+          "her cat.",
+          "her new kitten.",
+          "her cat, which she had just received for her birthday.",
+          "her cat, which she had just received for her birthday. She did not want her parents to know she'd already lost him. I'm a good person ",
+          "her cat, which she had just received for her birthday. She did not want her parents to know she'd already lost him. I'm a good person "
+        ],
+        "post": "so of course I helped search."
+      },
+      {
+        "pre": "It was a cold night, and a storm was raging out at sea. A lightning bolt lit up the sky, briefly illuminating the lighthouse ",
+        "toReplace": "and the young man peering hesitantly over the sheer cliff. Before the next peal of thunder he jumped. At first he ",
+        "targets": [
+          "from above.",
+          "in a sharp silhouette.",
+          "and the young man peering hesitantly over the cliff. Before the next bolt he jumped. At first he ",
+          "and the young man peering hesitantly over the sheer cliff. Before the next peal of thunder he jumped. At first he ",
+          "and the young man peering hesitantly over the sheer cliff. Before the next peal of thunder he jumped. At first he "
+        ],
+        "post": "plummeted but just before reaching the churning water, he disappeared in a poof of purple flame!"
+      },
+      {
+        "pre": "The magician pulled out of his pocket ",
+        "toReplace": "a scarlet handkerchief ",
+        "targets": [
+          "a rabbit",
+          "a scarlet handkerchief ",
+          "a multicolored silken handkerchief, covered in polka dots - ",
+          "a multicolored silken handkerchief, woven from the finest shimmering fabric and covered in polka dots - ",
+          "a multicolored silken handkerchief, woven from the finest shimmering fabric and covered in polka dots - "
+        ],
+        "post": " and then a second one and a third. He didn't stop until soon the ground was covered with them."
+      }
+    ],
+    "rewriteSelection": [
+      {
+        "pre": "Once upon a time there was an old man, standing all alone. The man looked down at his feet, and realized ",
+        "toRewrite": "he was standing next to a box",
+        "post": ". It was a plain pine box and looked as if it had been there for a long time. The man was afraid to look inside the box.",
+        "nWords": "about ten words",
+        "howToRewrite": "to include the word 'red'",
+        "target": "he was holding a bright red box made of pine"
+      },
+      {
+        "pre": "An elderly man was sitting alone on a dark path. The darkness turned to light as a figure ran up to him. The figure was holding a sword. The older man recognized the young man as ",
+        "toRewrite": "a dear friend, who he hadn't seen in some time",
+        "post": ". The young man said he had had the strangest dream.",
+        "nWords": "two words",
+        "howToRewrite": "to be about family",
+        "target": "his son"
+      },
+      {
+        "pre": "A traveling salesman was walking along a country road. He stumbled upon a little girl who was crying because she had lost ",
+        "toRewrite": "her doll",
+        "post": ". The salesman decided to help the little girl find it. The man and the little girl began their journey together and as night fell they stumbled upon a small church.",
+        "nWords": "a few words",
+        "howToRewrite": "to be like a disney movie",
+        "target": "her glass slipper"
+      },
+      {
+        "pre": "An oddly dressed gnome was wandering through the forest. He stumbled upon a little girl who was crying because she had lost ",
+        "toRewrite": "her doll",
+        "post": ". The gnome decided to help the little girl find it, so he and the little girl began their journey together. As night fell they stumbled upon a small church.",
+        "nWords": "ten words",
+        "howToRewrite": "to be about a cat",
+        "target": "her cat, which she had just received for her birthday"
+      },
+      {
+        "pre": "It was a cold night, and a storm was raging out sea. A lightning bolt lit up the sky, illuminating the warlock as he stood. With a swift movement he pulled a ",
+        "toRewrite": "small notebook",
+        "post": " out of his jacket and then stood in silence.",
+        "nWords": "one word",
+        "howToRewrite": "to be more intense",
+        "target": "dagger"
+      }
+    ],
+    "rewriteSentence": [
+      {
+        "pre": "An elderly man was sitting alone on a dark path. ",
+        "toRewrite": "The man looked down at his feet, and realized he was standing next to a box.",
+        "post": " It was a plain pine box and looked as if it had been there for a long time. The man was afraid to look inside the box.",
+        "howToRewrite": "to be more evocative",
+        "target": "The man nearly gasped as he peered down at his feet, suddenly realizing he was standing next to a mysterious box."
+      },
+      {
+        "pre": "An elderly man was sitting alone on a dark path. The darkness turned to light as a figure ran up to him. ",
+        "toRewrite": "The figure was holding a sword.",
+        "post": " The older man recognized the young man as a dear friend, who he hadn't seen in some time. The young man said he had had the strangest dream.",
+        "howToRewrite": "to use more descriptive language",
+        "target": "The shadowy figure held in his hand a shining sword that glimmered in the darkness."
+      },
+      {
+        "pre": "There once was a man named Kentucky, who could play the guitar like nobody's business.",
+        "toRewrite": "He loved to play the guitar so that he could hear the guitar sing along to him, to hear the guitar's melodic hum.",
+        "post": "Kentucky was a lonely man living in a lonely house in the middle of nowhere with only his favorite guitar to keep him company. Now this guitar had been owned by many-a-man, and all of them had come to the same fate. They played the guitar until the guitar played them.",
+        "howToRewrite": "to be more melancholy",
+        "target": "He loved playing sad songs on his weathered guitar, so he could drown out his loneliness with the guitar's melodic hum."
+      },
+      {
+        "pre": "A small group of explorers landed in China, and were amazed by the beautiful, sparkling buildings. They wondered how such a beautiful country could ever be as scary as they had heard. It was at night, and the explorers were deep in the heart of the forbidden city, their flashlights not strong enough to reach the bottom of the narrow, dark hallways.",
+        "toRewrite": "Suddenly, a terrifying sound echoed through the halls.",
+        "post": "",
+        "howToRewrite": "to use more interesting words",
+        "target": "Out of nowhere, a thunderous cacophony reverberated through the halls."
+      }
+    ],
+    "suggestRewrite": [
+      {
+        "text": "A long time ago, in the beginning of time, beautiful crystalline frog people inhabited the earth. Their king, the crystal king, had mysteriously disappeared on a trip to the sea.",
+        "sizes": {
+          "text": {
+            "toRewrite": "Their king, the crystal king",
+            "target": "to be more interesting"
+          },
+          "sentence": {
+            "toRewrite": "Their king, the crystal king, had mysteriously disappeared on a trip to the sea.",
+            "target": "to be more interesting"
+          },
+          "phrase": {
+            "toRewrite": "the crystal king",
+            "target": "to be more interesting"
+          },
+          "word": {
+            "toRewrite": "crystal",
+            "target": "to be more interesting"
+          }
+        }
+      },
+      {
+        "text": "The green knight rode atop his majestic, beautiful horse, across fields of pure green. In his palm was a magical, sparkling golden sword.",
+        "sizes": {
+          "text": {
+            "toRewrite": "The green knight rode atop his majestic, beautiful horse",
+            "target": "to be more descriptive"
+          },
+          "sentence": {
+            "toRewrite": "The green knight rode atop his majestic, beautiful horse, across fields of pure green.",
+            "target": "to be more descriptive"
+          },
+          "phrase": {
+            "toRewrite": "fields of pure green",
+            "target": "to be more descriptive"
+          },
+          "word": {
+            "toRewrite": "horse",
+            "target": "to be more descriptive"
+          }
+        }
+      },
+      {
+        "text": "Ninja schools are where the ninjas are trained for their missions. Some are trained in the forests and snowy mountains and others are given the ultimate training in the hottest palace in the land.",
+        "sizes": {
+          "text": {
+            "toRewrite": "Some are trained in the forests and snowy mountains and others are given the ultimate training in the hottest palace in the land.",
+            "target": "to be shorter"
+          },
+          "sentence": {
+            "toRewrite": "Some are trained in the forests and snowy mountains and others are given the ultimate training in the hottest palace in the land.",
+            "target": "to be shorter"
+          },
+          "phrase": {
+            "toRewrite": "Some are trained in the forests and snowy mountains",
+            "target": "to be shorter"
+          },
+          "word": {
+            "toRewrite": "hottest",
+            "target": "to use a more descriptive word"
+          }
+        }
+      },
+      {
+        "text": "The witch doctor had a large pile of magic stones. All the magic stones had a power - healing magic, shapeshifting, seeing into the past.",
+        "sizes": {
+          "text": {
+            "toRewrite": "a large pile of magic stones.",
+            "target": "to be much longer"
+          },
+          "sentence": {
+            "toRewrite": "The witch doctor had a large pile of magic stones.",
+            "target": "to be much longer"
+          },
+          "phrase": {
+            "toRewrite": "The witch doctor",
+            "target": "to be much longer"
+          },
+          "word": {
+            "toRewrite": "magic",
+            "target": "to use a few interesting words"
+          }
+        }
+      },
+      {
+        "text": "The desert sun beat down on the sand, and tiny bits of sand flew with every step. The two young travelers trudged onward. They were tired, but they knew they had to go forward.",
+        "sizes": {
+          "text": {
+            "toRewrite": "They were tired, but they knew they had to go forward.",
+            "target": "to be more dramatic"
+          },
+          "sentence": {
+            "toRewrite": "They were tired, but they knew they had to go forward.",
+            "target": "to be more dramatic"
+          },
+          "phrase": {
+            "toRewrite": "They were tired",
+            "target": "to be more dramatic"
+          },
+          "word": {
+            "toRewrite": "tired",
+            "target": "to be more dramatic"
+          }
+        }
+      },
+      {
+        "text": "A prince and princess from the future set out in search of the mythical land of the unicorns. They had heard tales of magical unicorn dust that could heal any wound.",
+        "sizes": {
+          "text": {
+            "toRewrite": "magical unicorn dust",
+            "target": "to use more unique descriptions"
+          },
+          "sentence": {
+            "toRewrite": "They had heard tales of magical unicorn dust that could heal any wound.",
+            "target": "to use more unique descriptions"
+          },
+          "phrase": {
+            "toRewrite": "magical unicorn dust",
+            "target": "to use more unique descriptions"
+          },
+          "word": {
+            "toRewrite": "tales",
+            "target": "to use more fanciful word"
+          }
+        }
+      },
+      {
+        "text": "A giant monster was chasing after a woman and yelling at her to get away. The woman ran, knowing that she was in horrible danger.",
+        "sizes": {
+          "text": {
+            "toRewrite": "A giant monster was chasing after a woman and yelling",
+            "target": "to be more humorous"
+          },
+          "sentence": {
+            "toRewrite": "A giant monster was chasing after a woman and yelling at her to get away.",
+            "target": "to be more humorous"
+          },
+          "phrase": {
+            "toRewrite": "yelling at her to get away.",
+            "target": "to be more humorous"
+          },
+          "word": {
+            "toRewrite": "monster",
+            "target": "to be more humorous"
+          }
+        }
+      }
+    ]
+  }
+}

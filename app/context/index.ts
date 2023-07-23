@@ -33,79 +33,109 @@ import {
   rewriteSentenceSchema,
   suggestRewriteSchema,
 } from './schema';
-
-import continueJson from './json/continue.json';
-import elaborateJson from './json/elaborate.json';
-import firstSentenceJson from './json/first_sentence.json';
-import freeformJson from './json/freeform.json';
-import generateWithinSentenceJson from './json/generate_within_sentence.json';
-import metaPromptJson from './json/meta_prompt.json';
-import newStoryJson from './json/new_story.json';
-import nextSentenceJson from './json/next_sentence.json';
-import replaceJson from './json/replace.json';
-import rewriteEndOfSentenceJson from './json/rewrite_end_of_sentence.json';
-import rewriteSelectionJson from './json/rewrite_selection.json';
-import rewriteSentenceJson from './json/rewrite_sentence.json';
-import suggestRewriteJson from './json/suggest_rewrite.json';
+import contextJson from './context.json';
+import {jsonSchema} from './schema';
+import {
+  buildContinueExamples,
+  buildFirstSentenceExamples,
+  buildGenerateWithinSentenceExamples,
+  buildNextSentenceExamples,
+} from './examples_from_stories';
 
 import {OperationType} from '@core/shared/types';
 
 export class WordcraftContext {
   constructor() {
-    this.registerExamples(OperationType.CONTINUE, continueSchema, continueJson);
+    // Parse the context JSON
+    const context = jsonSchema.parse(contextJson);
+
+    this.preamble = context.preamble;
+    this.documentType = context.documentType;
+
+    // Now, register the examples for operation types that are directly
+    // configured in the context JSON.
     this.registerExamples(
       OperationType.ELABORATE,
       elaborateSchema,
-      elaborateJson
+      context.examples.elaborate
     );
     this.registerExamples(
-      OperationType.FIRST_SENTENCE,
-      firstSentenceSchema,
-      firstSentenceJson
-    );
-    this.registerExamples(OperationType.FREEFORM, freeformSchema, freeformJson);
-    this.registerExamples(
-      OperationType.GENERATE_WITHIN_SENTENCE,
-      generateWithinSentenceSchema,
-      generateWithinSentenceJson
+      OperationType.FREEFORM,
+      freeformSchema,
+      context.examples.freeform
     );
     this.registerExamples(
       OperationType.META_PROMPT,
       metaPromptSchema,
-      metaPromptJson
+      context.examples.metaPrompt
     );
     this.registerExamples(
       OperationType.NEW_STORY,
       newStorySchema,
-      newStoryJson
+      context.examples.newStory
     );
     this.registerExamples(
-      OperationType.NEXT_SENTENCE,
-      nextSentenceSchema,
-      nextSentenceJson
-    );
-    this.registerExamples(OperationType.REPLACE, replaceSchema, replaceJson);
-    this.registerExamples(
-      OperationType.REWRITE_END_OF_SENTENCE,
-      rewriteEndOfSentenceSchema,
-      rewriteEndOfSentenceJson
+      OperationType.REPLACE,
+      replaceSchema,
+      context.examples.replace
     );
     this.registerExamples(
       OperationType.REWRITE_SELECTION,
       rewriteSelectionSchema,
-      rewriteSelectionJson
+      context.examples.rewriteSelection
     );
     this.registerExamples(
       OperationType.REWRITE_SENTENCE,
       rewriteSentenceSchema,
-      rewriteSentenceJson
+      context.examples.rewriteSentence
     );
     this.registerExamples(
       OperationType.SUGGEST_REWRITE,
       suggestRewriteSchema,
-      suggestRewriteJson
+      context.examples.suggestRewrite
+    );
+
+    // Finall, register the examples for operation types that are indirectly
+    // constructed from the `stories` fields in the context JSON.
+    const continueExamples = buildContinueExamples(context);
+    this.registerExamples(
+      OperationType.CONTINUE,
+      continueSchema,
+      continueExamples
+    );
+
+    const firstSentenceExamples = buildFirstSentenceExamples(context);
+    this.registerExamples(
+      OperationType.FIRST_SENTENCE,
+      firstSentenceSchema,
+      firstSentenceExamples
+    );
+
+    const generateWithinSentenceExamples =
+      buildGenerateWithinSentenceExamples(context);
+    this.registerExamples(
+      OperationType.GENERATE_WITHIN_SENTENCE,
+      generateWithinSentenceSchema,
+      generateWithinSentenceExamples
+    );
+
+    const nextSentenceExamples = buildNextSentenceExamples(context);
+    this.registerExamples(
+      OperationType.NEXT_SENTENCE,
+      nextSentenceSchema,
+      nextSentenceExamples
+    );
+
+    const rewriteEndOfSentenceExamples = buildNextSentenceExamples(context);
+    this.registerExamples(
+      OperationType.REWRITE_END_OF_SENTENCE,
+      rewriteEndOfSentenceSchema,
+      rewriteEndOfSentenceExamples
     );
   }
+
+  readonly preamble: string;
+  readonly documentType: string;
 
   private readonly examples = new Map<OperationType, Examples<any>>();
 
@@ -145,10 +175,6 @@ export class WordcraftContext {
     }
     const examples = this.examples.get(operationType) as Examples<T>;
     return examples.getExampleData();
-  }
-
-  get documentType() {
-    return 'story';
   }
 }
 

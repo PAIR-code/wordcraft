@@ -24,9 +24,9 @@ import {PalmModel} from '..';
 
 export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
   function generatePrompt(text: string, subject: string) {
-    const prefix = model.getStoryPrefix();
+    const documentPrefix = model.getDocumentPrefix();
     const suffix = `Describe "${subject}" in more detail.`;
-    return `${prefix} ${model.wrap(text)}\n${suffix}`;
+    return `${documentPrefix} ${model.wrap(text)}\n${suffix}`;
   }
 
   function getPromptContext() {
