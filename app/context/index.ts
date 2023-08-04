@@ -40,6 +40,7 @@ import {
   buildFirstSentenceExamples,
   buildGenerateWithinSentenceExamples,
   buildNextSentenceExamples,
+  buildRewriteEndOfSentenceExamples,
 } from './examples_from_stories';
 
 import {OperationType} from '@core/shared/types';
@@ -126,7 +127,7 @@ export class WordcraftContext {
       nextSentenceExamples
     );
 
-    const rewriteEndOfSentenceExamples = buildNextSentenceExamples(context);
+    const rewriteEndOfSentenceExamples = buildRewriteEndOfSentenceExamples(context);
     this.registerExamples(
       OperationType.REWRITE_END_OF_SENTENCE,
       rewriteEndOfSentenceSchema,
