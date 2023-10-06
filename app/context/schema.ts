@@ -57,6 +57,11 @@ export const newStorySchema = z.object({
   target: z.string(),
 });
 
+export const newCharacterSchema = z.object({
+  character: z.string(),
+  target: z.string(),
+});
+
 export const nextSentenceSchema = z.object({
   fullText: z.string(),
   targetSentenceIndex: z.number(),

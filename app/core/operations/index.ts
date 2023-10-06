@@ -24,6 +24,7 @@ import {GenerateWithinSentenceOperation} from './generate_within_sentence_operat
 import {MetaPromptOperation} from './meta_prompt_operation';
 import {NextSentenceOperation} from './next_sentence_operation';
 import {NewStoryOperation} from './new_story_operation';
+import {NewCharacterOperation} from './new_character_operation';
 import {ReplaceOperation} from './replace_operation';
 import {RewriteChoiceOperation} from './rewrite_choice_operation';
 import {RewriteEndOfSentenceOperation} from './rewrite_end_of_sentence_operation';
@@ -42,6 +43,7 @@ export {
   MetaPromptOperation,
   NextSentenceOperation,
   NewStoryOperation,
+  NewCharacterOperation,
   ReplaceOperation,
   RewriteChoiceOperation,
   RewriteEndOfSentenceOperation,

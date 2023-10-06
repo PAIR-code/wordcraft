@@ -26,6 +26,7 @@ import {
   MetaPromptPromptParams,
   NextSentencePromptParams,
   NewStoryPromptParams,
+  NewCharacterPromptParams,
   ReplacePromptParams,
   RewriteEndOfSentencePromptParams,
   RewriteSelectionPromptParams,
@@ -135,6 +136,10 @@ export abstract class Model {
   }
 
   async newStory(params: NewStoryPromptParams): Promise<ModelResults> {
+    throw new Error('Not yet implemented');
+  }
+
+  async newCharacter(params: NewCharacterPromptParams): Promise<ModelResults> {
     throw new Error('Not yet implemented');
   }
 

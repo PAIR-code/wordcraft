@@ -25,6 +25,7 @@ import {makePromptHandler as generateWithinSentence} from './prompts/generate_wi
 import {makePromptHandler as metaPrompt} from './prompts/meta_prompt';
 import {makePromptHandler as nextSentence} from './prompts/next_sentence';
 import {makePromptHandler as newStory} from './prompts/new_story';
+import { makePromptHandler as newCharacter } from './prompts/new_character';
 import {makePromptHandler as replace} from './prompts/replace';
 import {makePromptHandler as rewriteEndOfSentence} from './prompts/rewrite_end_of_sentence';
 import {makePromptHandler as rewriteSelection} from './prompts/rewrite_selection';
@@ -163,6 +164,7 @@ export class PalmModel extends Model {
   override metaPrompt = this.makePromptHandler(metaPrompt);
   override nextSentence = this.makePromptHandler(nextSentence);
   override newStory = this.makePromptHandler(newStory);
+  override newCharacter = this.makePromptHandler(newCharacter);
   override replace = this.makePromptHandler(replace);
   override rewriteEndOfSentence = this.makePromptHandler(rewriteEndOfSentence);
   override rewriteSelection = this.makePromptHandler(rewriteSelection);

@@ -46,6 +46,7 @@ operationsService.registerOperations(
   Operations.FreeformOperation,
   Operations.GenerateWithinSentenceOperation,
   Operations.NextSentenceOperation,
+  Operations.NewCharacterOperation,
   Operations.NewStoryOperation,
   Operations.ReplaceOperation,
   Operations.RewriteEndOfSentenceOperation,

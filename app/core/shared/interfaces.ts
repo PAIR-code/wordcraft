@@ -127,6 +127,10 @@ export interface NewStoryPromptParams {
   topic: string;
 }
 
+export interface NewCharacterPromptParams {
+  character: string;
+}
+
 export interface NextSentencePromptParams {
   pre: string;
   post: string;
