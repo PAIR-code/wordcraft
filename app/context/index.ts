@@ -26,6 +26,7 @@ import {
   generateWithinSentenceSchema,
   metaPromptSchema,
   newStorySchema,
+  newCharacterSchema,
   nextSentenceSchema,
   replaceSchema,
   rewriteEndOfSentenceSchema,
@@ -41,6 +42,7 @@ import freeformJson from './json/freeform.json';
 import generateWithinSentenceJson from './json/generate_within_sentence.json';
 import metaPromptJson from './json/meta_prompt.json';
 import newStoryJson from './json/new_story.json';
+import newCharacterJson from './json/new_character.json';
 import nextSentenceJson from './json/next_sentence.json';
 import replaceJson from './json/replace.json';
 import rewriteEndOfSentenceJson from './json/rewrite_end_of_sentence.json';
@@ -78,6 +80,11 @@ export class WordcraftContext {
       OperationType.NEW_STORY,
       newStorySchema,
       newStoryJson
+    );
+    this.registerExamples(
+      OperationType.NEW_CHARACTER,
+      newCharacterSchema,
+      newCharacterJson
     );
     this.registerExamples(
       OperationType.NEXT_SENTENCE,
@@ -170,6 +177,7 @@ export type GenerateWithinSentenceExample = z.infer<
 >;
 export type MetaPromptExample = z.infer<typeof metaPromptSchema>;
 export type NewStoryExample = z.infer<typeof newStorySchema>;
+export type NewCharacterExample = z.infer<typeof newCharacterSchema>;
 export type NextSentenceExample = z.infer<typeof nextSentenceSchema>;
 export type ReplaceExample = z.infer<typeof replaceSchema>;
 export type RewriteEndOfSentenceExample = z.infer<
