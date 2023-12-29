@@ -102,7 +102,7 @@ export async function callApi(
 ) {
   const urlPrefix = `${API_URL}/models/${modelId}:${method}`;
   const url = new URL(urlPrefix);
-  url.searchParams.append('key', process.env.PALM_API_KEY);
+  url.searchParams.append('key', process.env.API_KEY);
 
   return fetch(url.toString(), {
     method: 'POST',
