@@ -17,98 +17,134 @@
  * ==============================================================================
  */
 
-export const BLOCK_CONFIDENCE_THRESHOLDS = [
-  'BLOCK_CONFIDENCE_THRESHOLD_UNSPECIFIED',
-  'BLOCK_LOW_MEDIUM_AND_HIGH_HARM_CONFIDENCE',
-  'BLOCK_MEDIUM_AND_HIGH_HARM_CONFIDENCE',
-  'BLOCK_HIGH_HARM_CONFIDENCE_ONLY',
-  'BLOCK_NONE',
-];
-export type BlockConfidenceThreshold =
-  (typeof BLOCK_CONFIDENCE_THRESHOLDS)[number];
+// set up Gemini generative AI library
+const { GoogleGenerativeAI } = require("@google/generative-ai");
+const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+// Remember to set an environment variable for API_KEY in .env
 
-export const SAFETY_CATEGORIES = [
-  'HATE',
-  'TOXICITY',
-  'VIOLENCE',
-  'SEXUAL',
-  'MEDICAL',
-  'DANGEROUS',
-];
-export type SafetyCategory = (typeof SAFETY_CATEGORIES)[number];
+import { HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
+import { DialogParams } from '@core/shared/interfaces';
 
-export interface SafetySetting {
-  category: number;
-  threshold: BlockConfidenceThreshold;
-}
+// Default safety settings
+const safetySettings = [
+  {
+    category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+    threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+    threshold: HarmBlockThreshold.BLOCK_MEDIUM_AND_ABOVE,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+    threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+  },
+  {
+    category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+    threshold: HarmBlockThreshold.BLOCK_ONLY_HIGH,
+  },
+];
 
 export interface ModelParams {
-  topK?: number;
-  topP?: number;
-  candidateCount?: number;
-  maxOutputTokens?: number;
-  temperature?: number;
-  safetySettings?: SafetySetting[];
+  generationConfig?: {
+    topK?: number;
+    topP?: number;
+    candidateCount?: number;
+    maxOutputTokens?: number;
+    temperature?: number;
+  }
 }
 
-const DEFAULT_PARAMS: ModelParams = {
-  temperature: 1,
-  topK: 40,
-  topP: 0.95,
-  candidateCount: 8,
+const DEFAULT_GENERATION_PARAMS: ModelParams = {
+  generationConfig: {
+    temperature: 0.8,
+    topK: 40,
+    topP: 0.95,
+    candidateCount: 8
+  }
 };
 
-const DEFAULT_TEXT_PARAMS: ModelParams = {
-  ...DEFAULT_PARAMS,
-  maxOutputTokens: 1024,
-  safetySettings: SAFETY_CATEGORIES.map((category, index) => ({
-    category: index,
-    threshold: 'BLOCK_NONE',
-  })),
-};
+const TEXT_MODEL_ID = 'gemini-pro';
+const DIALOG_MODEL_ID = 'gemini-pro';
 
-const DEFAULT_DIALOG_PARAMS: ModelParams = {
-  ...DEFAULT_PARAMS,
-};
+export async function callTextModel(
+  textPrompt: string,
+  genConfig: ModelParams) {
+  // set any passed parameters
+  genConfig = Object.assign({}, DEFAULT_GENERATION_PARAMS, genConfig);
+  genConfig.generationConfig.maxOutputTokens = 1024;
 
-const API_URL = 'https://generativelanguage.googleapis.com/v1beta2';
-
-const TEXT_MODEL_ID = 'text-bison-001';
-const TEXT_METHOD = 'generateText';
-
-const DIALOG_MODEL_ID = 'chat-bison-001';
-const DIALOG_METHOD = 'generateMessage';
-
-export async function callTextModel(params: ModelParams) {
-  params = {
-    ...DEFAULT_TEXT_PARAMS,
-    ...params,
-  };
-  return callApi(TEXT_MODEL_ID, TEXT_METHOD, params);
-}
-
-export async function callDialogModel(params: ModelParams) {
-  params = {
-    ...DEFAULT_DIALOG_PARAMS,
-    ...params,
-  };
-  return callApi(DIALOG_MODEL_ID, DIALOG_METHOD, params);
-}
-
-export async function callApi(
-  modelId: string,
-  method: string,
-  params: Partial<ModelParams>
-) {
-  const urlPrefix = `${API_URL}/models/${modelId}:${method}`;
-  const url = new URL(urlPrefix);
-  url.searchParams.append('key', process.env.PALM_API_KEY);
-
-  return fetch(url.toString(), {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'text/plain',
-    },
-    body: JSON.stringify(params),
+  const model = genAI.getGenerativeModel({
+    model: TEXT_MODEL_ID, genConfig, safetySettings
   });
+  const result = await model.generateContent(textPrompt);
+  const response = await result.response;
+  return response.text();
+}
+
+export async function callDialogModel(
+  chatParams: DialogParams,
+  genConfig: ModelParams) {
+  // set any passed parameters
+  genConfig = Object.assign({}, DEFAULT_GENERATION_PARAMS, genConfig);
+  // set dialog-specific model parameters
+  genConfig.generationConfig.temperature = 0.7;
+  genConfig.generationConfig.candidateCount = 1;
+
+  const model = genAI.getGenerativeModel({
+    model: DIALOG_MODEL_ID, genConfig, safetySettings
+  });
+
+  // get lastest chat request (last message)
+  const lastMsgIndex = chatParams.messages.length - 1;
+  const message = chatParams.messages[lastMsgIndex].content;
+
+  // set chat history
+  const history = remapHistory(chatParams);
+
+  // chat history TESTS
+  const history1 = [
+    {
+      role: "user",
+      parts: "Who are you?"
+    },
+    {
+      role: "model",
+      parts: "I am a model trained by Google"
+    }
+  ];
+  const history2 = [
+    {
+      role: "user",
+      parts: "Here's my story so far: {The man sat in his chair and closed his eyes. His voice was filled with sadness, but also with hope and let out a single tear. He whispered, \"I've finally found my way home,\" as the light from the lantern flickered and grew faint. With those words, the man's body relaxed and a peaceful smile spread across his face. As the light from the lantern slowly faded, it left behind a lingering sense of warmth and belonging. }",
+    },
+    {
+      role: "model",
+      parts: "That's a great start for your story. How can I help?",
+    }
+  ];
+
+  // end test
+  console.log("history1 (static):\n", history1);
+  console.log("history2 (static):\n", history2);
+  console.log("history (object):\n", history);
+
+  const chat = model.startChat({ history2 });
+
+  const result = await chat.sendMessage(message);
+  const response = await result.response;
+  return response.text();
+}
+
+export function remapHistory(chatParams: DialogParams) {
+  const remappedMessageHistory = [];
+
+  // skip the first and last messages
+  for (let i = 1; i < chatParams.messages.length - 1; i++) {
+    remappedMessageHistory.push({
+      role: chatParams.messages[i].author,
+      parts: chatParams.messages[i].content
+    });
+  }
+  return remappedMessageHistory;
 }

@@ -125,26 +125,15 @@ export class PalmModel extends Model {
     params: Partial<ModelParams> = {},
     shouldParse = true
   ) {
-    let temperature = (params as any).temperature;
-    temperature = temperature === undefined ? 1 : temperature;
-
-    const modelParams = {
-      ...params,
-      prompt: {
-        text: promptText,
-      },
-      temperature: temperature,
-    };
-
+    // candidateCount: setting is being rejected or ignored. workaround:
+    promptText = promptText + "\nGenerate 8 responses. " +
+      "Each response must start with: " + D0 + " and end with: " + D1;
     console.log('🚀 prompt text: ', promptText);
 
-    const res = await callTextModel(modelParams);
-    const response = await res.json();
-    console.log('🚀 model results: ', response);
+    const res = await callTextModel(promptText, params);
+    console.log('🚀 model results: ', res);
 
-    const responseText = response.candidates?.length
-      ? response.candidates.map((candidate) => candidate.output)
-      : [];
+    const responseText = getListOfReponses(res, D0, D1);
 
     const results = createModelResults(responseText);
     const output = shouldParse
@@ -168,4 +157,18 @@ export class PalmModel extends Model {
   override rewriteSelection = this.makePromptHandler(rewriteSelection);
   override rewriteSentence = this.makePromptHandler(rewriteSentence);
   override suggestRewrite = this.makePromptHandler(suggestRewrite);
+}
+
+/** Get text between two delimiters */
+export function getListOfReponses(txt: string, d0: string, d1: string) {
+  // Note: s flag indicates a "single line", which counts newlines as characters
+  // allowing the regex to capture multi-line output
+  const re = new RegExp(`(?<=${d0})(.*?)(?=${d1})`, 'gms');
+  const matches = txt.match(re);
+  const responseList = [];
+  for (const match of matches) {
+    // re-add the curly brackets
+    responseList.push("{" + match + "}");
+  }
+  return responseList;
 }

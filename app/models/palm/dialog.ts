@@ -19,7 +19,7 @@
 
 import {DialogParams} from '@core/shared/interfaces';
 import {DialogModel} from '../dialog_model';
-import {callDialogModel, ModelParams} from './api';
+import { callDialogModel, ModelParams } from './api';
 import {createModelResults} from '../utils';
 
 import {ContextService, StatusService} from '@services/services';
@@ -37,27 +37,15 @@ export class PalmDialogModel extends DialogModel {
   }
 
   override async query(
-    params: DialogParams,
+    chatParams: DialogParams,
     modelParams: Partial<ModelParams> = {}
   ) {
-    let temperature = (params as any).temperature;
-    temperature = temperature === undefined ? 0.7 : temperature;
+    console.log('🚀 DialogParams: ', JSON.stringify(chatParams));
 
-    const queryParams = {
-      ...modelParams,
-      candidateCount: 1,
-      prompt: {
-        messages: params.messages,
-      },
-      temperature: temperature,
-    };
-
-    const res = await callDialogModel(queryParams);
-    const response = await res.json();
-    console.log('🚀 model results: ', response);
-
-    const responseText = response.candidates?.length
-      ? response.candidates.map((candidate) => candidate.content)
+    const singleResponse = await callDialogModel(chatParams, modelParams);
+    console.log('🚀 model results: ', singleResponse);
+    const responseText = singleResponse.length
+      ? [singleResponse]
       : [];
 
     const results = createModelResults(responseText);
