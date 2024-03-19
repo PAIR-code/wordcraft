@@ -29,9 +29,9 @@ interface ServiceProvider {
   statusService: StatusService;
 }
 /**
- * A Model representing PaLM Dialog API.
+ * A Model representing Gemini API for chat.
  */
-export class PalmDialogModel extends DialogModel {
+export class GeminiDialogModel extends DialogModel {
   constructor(serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }

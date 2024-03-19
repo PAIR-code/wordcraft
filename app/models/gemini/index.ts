@@ -53,9 +53,9 @@ interface ServiceProvider {
 }
 
 /**
- * A Model representing PaLM API.
+ * A Model representing Gemini API.
  */
-export class PalmModel extends Model {
+export class GeminiModel extends Model {
   constructor(serviceProvider: ServiceProvider) {
     super(serviceProvider);
   }
