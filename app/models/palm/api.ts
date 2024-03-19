@@ -101,35 +101,8 @@ export async function callDialogModel(
 
   // set chat history
   const history = remapHistory(chatParams);
-
-  // chat history TESTS
-  const history1 = [
-    {
-      role: "user",
-      parts: "Who are you?"
-    },
-    {
-      role: "model",
-      parts: "I am a model trained by Google"
-    }
-  ];
-  const history2 = [
-    {
-      role: "user",
-      parts: "Here's my story so far: {The man sat in his chair and closed his eyes. His voice was filled with sadness, but also with hope and let out a single tear. He whispered, \"I've finally found my way home,\" as the light from the lantern flickered and grew faint. With those words, the man's body relaxed and a peaceful smile spread across his face. As the light from the lantern slowly faded, it left behind a lingering sense of warmth and belonging. }",
-    },
-    {
-      role: "model",
-      parts: "That's a great start for your story. How can I help?",
-    }
-  ];
-
-  // end test
-  console.log("history1 (static):\n", history1);
-  console.log("history2 (static):\n", history2);
   console.log("history (object):\n", history);
-
-  const chat = model.startChat({ history2 });
+  const chat = model.startChat( history );
 
   const result = await chat.sendMessage(message);
   const response = await result.response;
