@@ -20,10 +20,10 @@
 import {FirstSentencePromptParams} from '@core/shared/interfaces';
 import {FirstSentenceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '@core/shared/types';
-import {PalmModel} from '..';
+import { GeminiModel } from '..';
 import {parseSentences} from '@lib/parse_sentences';
 
-export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
+export function makePromptHandler(model: GeminiModel, context: WordcraftContext) {
   function generatePrompt(textAfterBlank: string) {
     const prefix = model.getStoryPrefix();
     const suffix = 'Tell me the first sentence that fills in the blank: ';

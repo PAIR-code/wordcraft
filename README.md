@@ -6,9 +6,9 @@ Wordcraft is an LLM-powered text editor with an emphasis on short story writing.
 
 Wordcraft is a tool built by researchers at Google
 [PAIR](https://pair.withgoogle.com/) for writing stories with AI. The
-application is powered by LLMs such as
-[PaLM](https://developers.generativeai.google/), one of the latest generation of
-large language models. At its core, LLMs are simple machines — it's trained to
+application is powered by generative models such as
+[Gemini](https://ai.google.dev/docs/).
+At its core, generative models are simple machines — it's trained to
 predict the most likely next word given a textual prompt. But because the model
 is so large and has been trained on a massive amount of text, it's able to learn
 higher-level concepts. It also demonstrates a fascinating emergent capability
@@ -32,14 +32,14 @@ npm run dev
 
 # ☁️ API
 
-In order to run Wordcraft, you'll need a PaLM API key. Please follow the
+In order to run Wordcraft, you'll need a Gemini API key. Please follow the
 instructions at
-[developers.generativeai.google/tutorials/setup](https://developers.generativeai.google/tutorials/setup).
+[ai.google.dev/tutorials/setup](https://ai.google.dev/tutorials/setup).
 Once you have your API key, create a .env file and add the key!
 
 ```bash
 touch .env
-echo "PALM_API_KEY=\"<INSERT_PALM_API_KEY>\"" > .env
+echo "API_KEY=\"<INSERT_API_KEY>\"" > .env
 ```
 
 Remember, use your API keys securely. Do not share them with others, or embed
@@ -47,8 +47,8 @@ them directly in code that's exposed to the public! This application
 stores/loads API keys on the client for ease of development, but these should be
 removed in all production apps!
 
-You can find more information about the PaLM 2 API at
-[developers.generativeai.google](https://developers.generativeai.google/)
+You can find more information about the Gemini API at
+[ai.google.dev/docs/](https://ai.google.dev/docs/)
 
 # 🤖 App
 
@@ -88,9 +88,9 @@ To add a new custom control (e.g. a button that translates into pig latin):
 - Create a new `pig_latin_examples.json` in `/app/context/json/`
 - Register the examples int the `WordCraftContext` constructor
   (`/app/context/index.ts`)
-- Create a corresponding prompt handler in `/app/models/palm/prompts`
+- Create a corresponding prompt handler in `/app/models/gemini/prompts`
 - Register that prompt handler with the underlying `Model` class in
-  `/app/models/palm/index.ts`
+  `/app/models/gemini/index.ts`
 - Create a new `PigLatinOperation` in `/app/core/operations`
 - Register the operation in `main.ts`
 

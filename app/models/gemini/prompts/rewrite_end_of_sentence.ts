@@ -21,9 +21,9 @@ import {parseSentences} from '@lib/parse_sentences';
 import {RewriteEndOfSentencePromptParams} from '@core/shared/interfaces';
 import {RewriteEndOfSentenceExample, WordcraftContext} from '../../../context';
 import {OperationType} from '@core/shared/types';
-import {PalmModel} from '..';
+import { GeminiModel } from '..';
 
-export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
+export function makePromptHandler(model: GeminiModel, context: WordcraftContext) {
   function generatePrompt(
     textBeforeBlank: string,
     textAfterBlank: string,

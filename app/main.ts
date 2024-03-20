@@ -28,8 +28,8 @@ import {OperationsService} from '@services/operations_service';
 import {WordcraftContext} from './context';
 import {makeServiceProvider} from './service_provider';
 import {InitializationService} from '@services/initialization_service';
-import {PalmModel} from '@models/palm';
-import {PalmDialogModel} from '@models/palm/dialog';
+import {GeminiModel} from '@models/gemini';
+import {GeminiDialogModel} from '@models/gemini/dialog';
 
 wordcraftCore.initialize(makeServiceProvider);
 
@@ -55,8 +55,8 @@ operationsService.registerOperations(
 
 // Register prompts with models
 const modelService = wordcraftCore.getService(ModelService);
-modelService.useModel(PalmModel);
-modelService.useDialogModel(PalmDialogModel);
+modelService.useModel(GeminiModel);
+modelService.useDialogModel(GeminiDialogModel);
 
 // Initialize the app after page load, so that all of the javascript is present
 // before we build the app.

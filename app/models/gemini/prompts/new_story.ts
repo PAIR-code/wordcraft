@@ -17,35 +17,40 @@
  * ==============================================================================
  */
 
-import {ContinuePromptParams} from '@core/shared/interfaces';
-import {ContinueExample, WordcraftContext} from '../../../context';
+import {NewStoryPromptParams} from '@core/shared/interfaces';
+import {NewStoryExample, WordcraftContext} from '../../../context';
 import {OperationType} from '@core/shared/types';
-import {PalmModel} from '..';
+import { GeminiModel } from '..';
 
-export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
-  function generatePrompt(text: string) {
-    const prefix = model.getStoryPrefix();
-    const suffix = 'Continue the story: ';
-
-    return `${prefix} ${model.wrap(text)}\n${suffix} `;
-  }
-
+export function makePromptHandler(model: GeminiModel, context: WordcraftContext) {
   function getPromptContext() {
-    const examples = context.getExampleData<ContinueExample>(
-      OperationType.CONTINUE
+    const examples = context.getExampleData<NewStoryExample>(
+      OperationType.NEW_STORY
     );
     let promptContext = model.getPromptPreamble();
-    examples.forEach(({input, target}) => {
-      const prompt = generatePrompt(input);
+    examples.forEach((example) => {
+      const {topic, target} = example;
+      const prompt = generatePrompt(topic);
       promptContext += `${prompt} ${model.wrap(target)}\n\n`;
     });
     return promptContext;
   }
 
-  /** Return the actual prompt handler */
-  return async function continuation(params: ContinuePromptParams) {
+  function generatePrompt(topic: string) {
+    const prefix = "Here's a story topic: ";
+    const suffix = 'Tell me a new beginning of a story: ';
+
+    if (topic.trim() === '') {
+      return suffix;
+    } else {
+      return `${prefix}${model.wrap(topic)}\n${suffix}`;
+    }
+  }
+
+  return async function storySeed(params: NewStoryPromptParams) {
+    const {topic} = params;
     const promptContext = getPromptContext();
-    const prompt = generatePrompt(params.text);
+    const prompt = generatePrompt(topic);
     const inputText = promptContext + prompt;
     return model.query(inputText);
   };

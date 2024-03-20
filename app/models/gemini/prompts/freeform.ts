@@ -21,9 +21,9 @@ import {shuffle} from '@lib/utils';
 import {FreeformPromptParams} from '@core/shared/interfaces';
 import {FreeformExample, WordcraftContext} from '../../../context';
 import {OperationType} from '@core/shared/types';
-import {PalmModel} from '..';
+import { GeminiModel } from '..';
 
-export function makePromptHandler(model: PalmModel, context: WordcraftContext) {
+export function makePromptHandler(model: GeminiModel, context: WordcraftContext) {
   function getPromptContext() {
     const examples = context.getExampleData<FreeformExample>(
       OperationType.FREEFORM
