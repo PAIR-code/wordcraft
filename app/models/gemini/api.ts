@@ -17,12 +17,10 @@
  * ==============================================================================
  */
 
-// set up Gemini generative AI library
-const { GoogleGenerativeAI } = require("@google/generative-ai");
+import { GoogleGenerativeAI, HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 // Remember to set an environment variable for API_KEY in .env
 
-import { HarmBlockThreshold, HarmCategory } from "@google/generative-ai";
 import { DialogParams } from '@core/shared/interfaces';
 
 // Default safety settings
@@ -60,12 +58,12 @@ const DEFAULT_GENERATION_PARAMS: ModelParams = {
     temperature: 0.8,
     topK: 40,
     topP: 0.95,
-    candidateCount: 8
+    candidateCount: 1
   }
 };
 
-const TEXT_MODEL_ID = 'gemini-pro';
-const DIALOG_MODEL_ID = 'gemini-pro';
+const TEXT_MODEL_ID = 'gemini-3-pro-preview';
+const DIALOG_MODEL_ID = 'gemini-3-flash-preview';
 
 export async function callTextModel(
   textPrompt: string,
@@ -75,8 +73,10 @@ export async function callTextModel(
   genConfig.generationConfig.maxOutputTokens = 1024;
 
   const model = genAI.getGenerativeModel({
-    model: TEXT_MODEL_ID, genConfig, safetySettings
-  });
+    model: TEXT_MODEL_ID,
+    generationConfig: genConfig.generationConfig,
+    safetySettings
+  }, { apiVersion: 'v1beta' });
   const result = await model.generateContent(textPrompt);
   const response = await result.response;
   return response.text();
@@ -92,8 +92,10 @@ export async function callDialogModel(
   genConfig.generationConfig.candidateCount = 1;
 
   const model = genAI.getGenerativeModel({
-    model: DIALOG_MODEL_ID, genConfig, safetySettings
-  });
+    model: DIALOG_MODEL_ID,
+    generationConfig: genConfig.generationConfig,
+    safetySettings
+  }, { apiVersion: 'v1beta' });
 
   // get lastest chat request (last message)
   const lastMsgIndex = chatParams.messages.length - 1;
@@ -102,7 +104,7 @@ export async function callDialogModel(
   // set chat history
   const history = remapHistory(chatParams);
   console.log("history (object):\n", history);
-  const chat = model.startChat( history );
+  const chat = model.startChat({ history });
 
   const result = await chat.sendMessage(message);
   const response = await result.response;

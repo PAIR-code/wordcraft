@@ -130,10 +130,19 @@ export class GeminiModel extends Model {
       "Each response must start with: " + D0 + " and end with: " + D1;
     console.log('🚀 prompt text: ', promptText);
 
-    const res = await callTextModel(promptText, params);
+    let res: string;
+    try {
+      res = await callTextModel(promptText, params);
+    } catch (err) {
+      console.error('Error calling text model:', err);
+      throw err;
+    }
     console.log('🚀 model results: ', res);
 
     const responseText = getListOfReponses(res, D0, D1);
+    if (responseText.length === 0) {
+      console.warn('No responses found in model output. Raw output:', res);
+    }
 
     const results = createModelResults(responseText);
     const output = shouldParse
@@ -165,6 +174,9 @@ export function getListOfReponses(txt: string, d0: string, d1: string) {
   // allowing the regex to capture multi-line output
   const re = new RegExp(`(?<=${d0})(.*?)(?=${d1})`, 'gms');
   const matches = txt.match(re);
+  if (!matches) {
+    return [];
+  }
   const responseList = [];
   for (const match of matches) {
     // re-add the curly brackets
